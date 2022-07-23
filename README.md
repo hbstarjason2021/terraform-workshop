@@ -13,4 +13,13 @@ unzip terraform_1.2.0_linux_amd64.zip
 mv terraform /usr/local/bin
 terraform version
 
+
+## Use
+terraform fmt
+terraform init
+terraform validate
+terraform plan
+terraform apply
+terraform apply -auto-approve
+
 ```
