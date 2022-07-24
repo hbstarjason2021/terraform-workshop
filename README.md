@@ -17,10 +17,16 @@ terraform version
 
 ## Use
 terraform fmt
-terraform init
 terraform validate
+
+terraform init
 terraform plan
 terraform apply
 terraform apply -auto-approve
 
+terraform show
+terraform state
+terraform import
+
+terraform destroy
 ```
