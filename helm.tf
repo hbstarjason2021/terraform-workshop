@@ -18,8 +18,8 @@ resource "helm_release" "nginx_ingress" {
   }
 }
 
-resource "helm_release" "nginx_app" {
-  name = "nginx-app"
+resource "helm_release" "nginx_demo" {
+  name = "nginx-demo"
 
   repository = "https://charts.bitnami.com/bitnami"
   chart      = "nginx"
