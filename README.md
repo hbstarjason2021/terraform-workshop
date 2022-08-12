@@ -26,7 +26,7 @@ terraform apply
 terraform apply -auto-approve
 
 terraform show
-terraform state
+terraform state list
 terraform import
 
 terraform destroy
