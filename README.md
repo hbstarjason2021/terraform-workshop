@@ -27,6 +27,8 @@ terraform apply -auto-approve
 
 terraform show
 terraform state list
+terraform refresh
+
 terraform import
 
 ## Graph
