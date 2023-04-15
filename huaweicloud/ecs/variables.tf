@@ -1,9 +1,9 @@
 
 variable "hw_access_key" {
-    type = "string"
+    #type = "string"
 }
 variable "hw_secret_key" {
-    type = "string"
+    #type = "string"
 }
 
 variable "hw_region" {
