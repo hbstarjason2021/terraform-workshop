@@ -4,7 +4,7 @@
 ## export HW_SECRET_KEY="my-secret-key"
 
 terraform {
-  required_version = ">= 0.13"
+  required_version = "~> 1.4"
 
   required_providers {
     huaweicloud = {
@@ -12,7 +12,7 @@ terraform {
       
       ##source  = "local-registry/huaweicloud/huaweicloud"
       
-      version = ">= 1.20.0"
+      version = "~>1.47"
     }
   }
 }
