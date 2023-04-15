@@ -89,3 +89,9 @@ resource "huaweicloud_cce_node_attach" "test" {
   key_pair   = huaweicloud_compute_keypair.mykeypair.name
   os         = var.os
 }
+
+
+resource "local_file" "kube_config" {
+            content = huaweicloud_cce_cluster.mycce.kube_config_raw
+            filename = " ~/.kube/config"
+}
