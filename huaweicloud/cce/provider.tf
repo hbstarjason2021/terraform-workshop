@@ -17,3 +17,4 @@ provider "huaweicloud" {
   access_key = "XXX"
   secret_key = "XXX"
 }
+
