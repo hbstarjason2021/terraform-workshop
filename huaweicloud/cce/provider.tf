@@ -18,3 +18,8 @@ provider "huaweicloud" {
   secret_key = "XXX"
 }
 
+
+provider "kubernetes" {
+            config_path    = local_file.kube_config.filename
+            config_context = "external"
+}
