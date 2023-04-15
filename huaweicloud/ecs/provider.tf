@@ -1,7 +1,7 @@
 
-## export HW_REGION_NAME="cn-north-4"
-## export HW_ACCESS_KEY="my-access-key"
-## export HW_SECRET_KEY="my-secret-key"
+## export hw_region="cn-north-4"
+## export hw_access_key="XXX"
+## export hw_secret_key="YYY"
 
 terraform {
   required_version = "~> 1.4"
@@ -19,9 +19,9 @@ terraform {
 
 # Configure the HuaweiCloud Provider
 provider "huaweicloud" {
-  region     = "cn-north-4"
-  access_key = "my-access-key"
-  secret_key = "my-secret-key"
+  region     = "${var.hw_region}"
+  access_key = "${var.hw_access_key}"
+  secret_key = "${var.hw_secret_key}"
 }
 
 
