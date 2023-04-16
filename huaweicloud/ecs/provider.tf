@@ -1,4 +1,10 @@
 
+### https://support.huaweicloud.com/usermanual-terraform/terraform_0001.html
+
+## export HW_ACCESS_KEY="my-access-key"
+## export HW_SECRET_KEY="my-secret-key"
+
+
 ## export hw_region="cn-north-4"
 ## export hw_access_key="XXX"
 ## export hw_secret_key="YYY"
