@@ -46,6 +46,7 @@ variable "node_name" {
   default = "mynode"
 }
 
+### 通用入门型 | t6.large.2 | 2vCPUs | 4GiB
 variable "node_flavor" {
   default = "t6.large.2"
 }
@@ -66,6 +67,7 @@ variable "data_volume_type" {
   default = "SAS"
 }
 
+### 通用计算型 | sn3.large.2 | 2vCPUs | 4GiB
 variable "ecs_flavor" {
   default = "sn3.large.2"
 }
