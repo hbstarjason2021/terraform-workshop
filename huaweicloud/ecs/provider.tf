@@ -25,7 +25,7 @@ terraform {
 
 # Configure the HuaweiCloud Provider
 provider "huaweicloud" {
-  region     = "${var.hw_region}"
+  region     = "cn-north-4"
   #access_key = "${var.hw_access_key}"
   #secret_key = "${var.hw_secret_key}"
 }
