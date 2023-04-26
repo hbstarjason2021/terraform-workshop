@@ -82,4 +82,5 @@ variable "os" {
 
 variable "image_name" {
   default = "EulerOS 2.5 64bit"
+  ## Ubuntu 18.04 server 64bit
 }
