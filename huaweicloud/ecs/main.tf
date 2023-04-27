@@ -7,9 +7,9 @@ data "huaweicloud_compute_flavors" "myflavor" {
   memory_size       = 8
 }
 
-data "huaweicloud_vpc_subnet" "mynet" {
-  name = "subnet-default"
-}
+#data "huaweicloud_vpc_subnet" "mynet" {
+#  name = "subnet-default"
+#}
 
 data "huaweicloud_images_image" "myimage" {
   name        = "Ubuntu 20.04 server 64bit"
@@ -55,7 +55,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   #admin_pass        = random_password.password.result
 
   network {
-    uuid = data.huaweicloud_vpc_subnet.mynet.id
+    uuid = huaweicloud_vpc_subnet.mysubnet.id
   }
 }
 
