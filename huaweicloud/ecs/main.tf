@@ -16,14 +16,31 @@ data "huaweicloud_images_image" "myimage" {
   most_recent = true
 }
 
-resource "random_password" "password" {
-  length           = 16
-  special          = true
-  override_special = "!@"
-  min_numeric      = 1
-  min_lower        = 1
-  min_special      = 1
+resource "huaweicloud_vpc" "myvpc" {
+  name = var.vpc_name
+  cidr = var.vpc_cidr
 }
+
+resource "huaweicloud_vpc_subnet" "mysubnet" {
+  name       = var.subnet_name
+  cidr       = var.subnet_cidr
+  gateway_ip = var.subnet_gateway
+
+  # dns is required for cce node installing
+  primary_dns   = var.primary_dns
+  secondary_dns = var.secondary_dns
+  vpc_id        = huaweicloud_vpc.myvpc.id
+}
+
+
+#resource "random_password" "password" {
+#  length           = 16
+#  special          = true
+#  override_special = "!@"
+#  min_numeric      = 1
+#  min_lower        = 1
+#  min_special      = 1
+#}
 
 resource "huaweicloud_compute_instance" "myinstance" {
   name               = "basic"
@@ -34,7 +51,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "SSD"
-  #admin_pass        = "Huawei123" 
+  admin_pass        = "Huawei123" 
   #admin_pass        = random_password.password.result
 
   network {
