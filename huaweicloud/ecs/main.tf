@@ -33,14 +33,14 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
 }
 
 
-#resource "random_password" "password" {
-#  length           = 16
-#  special          = true
-#  override_special = "!@"
-#  min_numeric      = 1
-#  min_lower        = 1
-#  min_special      = 1
-#}
+resource "random_password" "password" {
+  length           = 16
+  special          = true
+  override_special = "!@"
+  min_numeric      = 1
+  min_lower        = 1
+  min_special      = 1
+}
 
 resource "huaweicloud_compute_instance" "myinstance" {
   name               = "basic"
@@ -74,4 +74,17 @@ resource "huaweicloud_vpc_eip" "myeip" {
 resource "huaweicloud_compute_eip_associate" "associated" {
   public_ip   = huaweicloud_vpc_eip.myeip.address
   instance_id = huaweicloud_compute_instance.myinstance.id
+}
+
+
+resource "huaweicloud_evs_volume" "myvolume" {
+  name              = "myvolume"
+  availability_zone = data.huaweicloud_availability_zones.myaz.names[0]
+  volume_type       = "SAS"
+  size              = 10
+}
+
+resource "huaweicloud_compute_volume_attach" "attached" {
+  instance_id = huaweicloud_compute_instance.myinstance.id
+  volume_id   = huaweicloud_evs_volume.myvolume.id
 }
