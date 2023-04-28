@@ -77,11 +77,11 @@ variable "ecs_name" {
 }
 
 variable "os" {
-  default = "EulerOS 2.9"
+  default = "EulerOS 2.5"
 }
 
 variable "image_name" {
-  default = "EulerOS 2.9 64bit"
+  default = "EulerOS 2.5 64bit"
   ## Ubuntu 18.04 server 64bit
   ## EulerOS 2.5 64bit
 }
