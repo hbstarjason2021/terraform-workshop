@@ -48,7 +48,7 @@ variable "node_name" {
 
 ### 通用入门型 | t6.large.2 | 2vCPUs | 4GiB
 variable "node_flavor" {
-  default = "t6.large.2"
+  default = "c7.2xlarge.2"
 }
 
 variable "root_volume_size" {
@@ -69,7 +69,7 @@ variable "data_volume_type" {
 
 ### 通用计算型 | sn3.large.2 | 2vCPUs | 4GiB
 variable "ecs_flavor" {
-  default = "sn3.large.2"
+  default = "c7.2xlarge.2"
 }
 
 variable "ecs_name" {
@@ -77,10 +77,11 @@ variable "ecs_name" {
 }
 
 variable "os" {
-  default = "EulerOS 2.5"
+  default = "Ubuntu 20.04"
 }
 
 variable "image_name" {
-  default = "EulerOS 2.5 64bit"
+  default = "Ubuntu 20.04 server 64bit"
   ## Ubuntu 18.04 server 64bit
+  ## EulerOS 2.5 64bit
 }
