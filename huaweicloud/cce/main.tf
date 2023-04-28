@@ -32,7 +32,8 @@ resource "huaweicloud_compute_keypair" "mykeypair" {
   name = var.key_pair_name
 }
 
-## resource "huaweicloud_cce_cluster_v3"
+
+## https://support.huaweicloud.com/usermanual-terraform/terraform_0015.html
 
 resource "huaweicloud_cce_cluster" "mycce" {
   name                   = var.cce_cluster_name
