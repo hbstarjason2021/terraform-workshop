@@ -69,7 +69,7 @@ variable "data_volume_type" {
 
 ### 通用计算型 | sn3.large.2 | 2vCPUs | 4GiB
 variable "ecs_flavor" {
-  default = "s6.xlarge.2"
+  default = "c7.2xlarge.2"
 }
 
 variable "ecs_name" {
@@ -77,11 +77,11 @@ variable "ecs_name" {
 }
 
 variable "os" {
-  default = "Ubuntu 20.04"
+  default = "EulerOS 2.9"
 }
 
 variable "image_name" {
-  default = "Ubuntu 20.04 server 64bit"
+  default = "EulerOS 2.9 64bit"
   ## Ubuntu 18.04 server 64bit
   ## EulerOS 2.5 64bit
 }
