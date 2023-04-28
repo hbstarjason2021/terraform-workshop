@@ -69,7 +69,7 @@ variable "data_volume_type" {
 
 ### 通用计算型 | sn3.large.2 | 2vCPUs | 4GiB
 variable "ecs_flavor" {
-  default = "c7.2xlarge.2"
+  default = "s6.xlarge.2"
 }
 
 variable "ecs_name" {
