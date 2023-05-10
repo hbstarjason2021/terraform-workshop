@@ -38,6 +38,8 @@ resource "huaweicloud_compute_keypair" "mykeypair" {
 resource "huaweicloud_cce_cluster" "mycce" {
   name                   = var.cce_cluster_name
   flavor_id              = var.cce_cluster_flavor
+  cluster_type           = var.cce_cluster_type
+  cluster_version        = var.cce_cluster_version
   vpc_id                 = huaweicloud_vpc.myvpc.id
   subnet_id              = huaweicloud_vpc_subnet.mysubnet.id
   container_network_type = "overlay_l2"
