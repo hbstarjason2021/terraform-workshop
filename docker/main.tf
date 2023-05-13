@@ -1,8 +1,10 @@
+#### https://developer.hashicorp.com/terraform/tutorials/docker-get-started/docker-build
 
 terraform {
   required_providers {
     docker = {
       source = "kreuzwerker/docker"
+      version = "~> 3.0.1"
     }
   }
 }
@@ -15,10 +17,13 @@ resource "docker_image" "nginx" {
 }
 
 resource "docker_container" "nginx" {
-  image = docker_image.nginx.latest
+  image = docker_image.nginx.image_id
   name  = "terraform-docker-demo"
   ports {
     internal = 80
     external = 8000
   }
 }
+
+### terraform show
+### terraform state list
