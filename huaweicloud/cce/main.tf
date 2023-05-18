@@ -34,10 +34,12 @@ resource "huaweicloud_compute_keypair" "mykeypair" {
 
 
 ## https://support.huaweicloud.com/usermanual-terraform/terraform_0015.html
+## https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/data-sources/cce_cluster
 
 resource "huaweicloud_cce_cluster" "mycce" {
   name                   = var.cce_cluster_name
   flavor_id              = var.cce_cluster_flavor
+  ## charging_mode          = var.cce_cluster_charging_mode   ## postPaid
   cluster_type           = var.cce_cluster_type
   cluster_version        = var.cce_cluster_version
   vpc_id                 = huaweicloud_vpc.myvpc.id
