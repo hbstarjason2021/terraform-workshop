@@ -54,6 +54,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   admin_pass        = "Huawei123" 
   #admin_pass        = random_password.password.result
 
+  user_data = "#!/bin/bash\n apt-get update -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
   network {
     uuid = huaweicloud_vpc_subnet.mysubnet.id
   }
@@ -65,7 +66,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
   }
   bandwidth {
     name        = "mybandwidth"
-    size        = 20
+    size        = 50
     share_type  = "PER"
     charge_mode = "traffic"
   }
