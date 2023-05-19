@@ -27,7 +27,7 @@ variable "secondary_dns" {
 }
 
 variable "bandwidth_name" {
-  default = "mybandwidth"
+  default = "ccebandwidth"
 }
 
 variable "key_pair_name" {
