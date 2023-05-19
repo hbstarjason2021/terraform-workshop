@@ -1,8 +1,4 @@
 
-
-data "huaweicloud_availability_zones" "myaz" {}
-
-
 ## https://support.huaweicloud.com/usermanual-terraform/terraform_0015.html
 ## https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/data-sources/cce_cluster
 
