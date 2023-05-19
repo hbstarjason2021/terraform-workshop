@@ -53,8 +53,17 @@ resource "huaweicloud_compute_instance" "myinstance" {
   system_disk_type   = "SSD"
   admin_pass        = "Huawei123" 
   #admin_pass        = random_password.password.result
+  
+  # charging_mode = "prePaid"
+  # period_unit   = "month"
+  # period        = 1
 
-  user_data = "#!/bin/bash\n apt-get update -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
+  ## user_data = "#!/bin/bash\napt-get update -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
+  user_data         = <<-EOF
+#!/bin/bash
+echo hello > /home/terraform.txt
+EOF
+  
   network {
     uuid = huaweicloud_vpc_subnet.mysubnet.id
   }
