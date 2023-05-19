@@ -1,3 +1,4 @@
+data "huaweicloud_availability_zones" "myaz" {}
 
 resource "huaweicloud_compute_keypair" "mykeypair" {
   name = var.key_pair_name
