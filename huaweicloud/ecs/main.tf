@@ -61,7 +61,8 @@ resource "huaweicloud_compute_instance" "myinstance" {
   ## user_data = "#!/bin/bash\napt-get update -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
   user_data         = <<-EOF
 #!/bin/bash
-echo hello > /home/terraform.txt
+apt-get update -y
+wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash
 EOF
   
   network {
