@@ -48,8 +48,8 @@ variable "cce_cluster_type" {
 }
 
 variable "cce_cluster_version" {
-  default = "v1.23"
-  # v1.19.10-r0
+  default = "v1.21"
+  # v1.23
 }
 
 variable "node_name" {
