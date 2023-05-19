@@ -1,4 +1,4 @@
-resource "huaweicloud_vpc" "myvpc" {
+resource "huaweicloud_vpc" "ccevpc" {
   name = var.vpc_name
   cidr = var.vpc_cidr
 }
@@ -11,7 +11,7 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
   # dns is required for cce node installing
   primary_dns   = var.primary_dns
   secondary_dns = var.secondary_dns
-  vpc_id        = huaweicloud_vpc.myvpc.id
+  vpc_id        = huaweicloud_vpc.ccevpc.id
 }
 
 resource "huaweicloud_vpc_eip" "myeip" {
@@ -42,7 +42,7 @@ resource "huaweicloud_cce_cluster" "mycce" {
   ## charging_mode          = var.cce_cluster_charging_mode   ## postPaid
   cluster_type           = var.cce_cluster_type
   cluster_version        = var.cce_cluster_version
-  vpc_id                 = huaweicloud_vpc.myvpc.id
+  vpc_id                 = huaweicloud_vpc.ccevpc.id
   subnet_id              = huaweicloud_vpc_subnet.mysubnet.id
   container_network_type = "overlay_l2"
   eip                    = huaweicloud_vpc_eip.myeip.address
