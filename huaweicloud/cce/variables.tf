@@ -1,5 +1,5 @@
 variable "vpc_name" {
-  default = "vpc-basic"
+  default = "cce-vpc"
 }
 
 variable "vpc_cidr" {
