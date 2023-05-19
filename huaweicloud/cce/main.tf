@@ -16,7 +16,7 @@ resource "huaweicloud_cce_cluster" "mycce" {
 
 
 
-resource "local_file" "kube_config" {
-            content = huaweicloud_cce_cluster.mycce.kube_config_raw
-            filename = " ~/.kube/config"
-}
+#resource "local_file" "kube_config" {
+#            content = huaweicloud_cce_cluster.mycce.kube_config_raw
+#            filename = " ~/.kube/config"
+#}
