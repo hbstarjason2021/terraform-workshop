@@ -57,7 +57,8 @@ resource "huaweicloud_compute_instance" "myinstance" {
   # charging_mode = "prePaid"
   # period_unit   = "month"
   # period        = 1
-
+  
+  ## wget http://mirrors.myhuaweicloud.com/repo/mirrors_source.sh && sh mirrors_source.sh
   ## user_data = "#!/bin/bash\napt-get update -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
   user_data         = <<-EOF
 #!/bin/bash
