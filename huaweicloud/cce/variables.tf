@@ -31,7 +31,7 @@ variable "bandwidth_name" {
 }
 
 variable "key_pair_name" {
-  default = "mykey_pair"
+  default = "ccekey_pair"
 }
 
 variable "cce_cluster_name" {
