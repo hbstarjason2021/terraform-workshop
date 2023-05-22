@@ -62,6 +62,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   ## user_data = "#!/bin/bash\napt-get update -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
   user_data         = <<-EOF
 #!/bin/bash
+echo Huawei@123 | passwd root --stdin > /dev/null 2>&1
 apt-get update -y
 wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash
 EOF
