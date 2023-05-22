@@ -65,6 +65,8 @@ resource "huaweicloud_compute_instance" "myinstance" {
 apt-get update -y
 wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash
 EOF
+
+# 注意有坑：设置了user_data字段后，admin_pass字段将无效
   
   network {
     uuid = huaweicloud_vpc_subnet.mysubnet.id
