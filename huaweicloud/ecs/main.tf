@@ -65,7 +65,9 @@ resource "huaweicloud_compute_instance" "myinstance" {
 echo Huawei@123 | passwd root --stdin > /dev/null 2>&1
 apt-get update -y
 wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/ali.sh | bash
+sleep 15
 wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash
+sleep 5
 EOF
 
 # 注意有坑：设置了user_data字段后，admin_pass字段将无效
