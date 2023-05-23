@@ -31,7 +31,7 @@ provider "huaweicloud" {
 }
 
 
-provider "kubernetes" {
-            config_path    = local_file.kube_config.filename
-            config_context = "external"
-}
+#provider "kubernetes" {
+#            config_path    = local_file.kube_config.filename
+#            config_context = "external"
+#}
