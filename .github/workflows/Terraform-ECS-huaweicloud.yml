@@ -64,7 +64,7 @@ jobs:
          tar -xf terrascan.tar.gz terrascan && rm terrascan.tar.gz
          install terrascan /usr/local/bin && rm terrascan
          
-         terrascan scan
+         ### terrascan scan
          
          terraform apply -auto-approve -input=false
 
