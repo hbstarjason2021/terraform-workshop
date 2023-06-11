@@ -18,7 +18,7 @@ on:
 env:
    #HW_ACCESS_KEY: ${{ secrets.HW_ACCESS_KEY }}
    #HW_SECRET_KEY: ${{ secrets.HW_SECRET_KEY }}
-   W_ACCESS_KEY: ${{ github.event.inputs.hw_access_key}}
+   HW_ACCESS_KEY: ${{ github.event.inputs.hw_access_key}}
    HW_SECRET_KEY: ${{ github.event.inputs.hw_secret_key}}
 jobs:
   terraform:
