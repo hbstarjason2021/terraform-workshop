@@ -5,12 +5,21 @@ on:
   #  branches: [ "main" ]
   #pull_request:
   workflow_dispatch:
-
+    inputs:
+      hw_access_key:
+         description: 'HW_ACCESS_KEY'
+         required: true
+      hw_secret_key:
+         description: 'HW_SECRET_KEY'
+         required: true
+         
 #permissions:
 #  contents: read
 env:
-   HW_ACCESS_KEY: ${{ secrets.HW_ACCESS_KEY }}
-   HW_SECRET_KEY: ${{ secrets.HW_SECRET_KEY }}
+   #HW_ACCESS_KEY: ${{ secrets.HW_ACCESS_KEY }}
+   #HW_SECRET_KEY: ${{ secrets.HW_SECRET_KEY }}
+   W_ACCESS_KEY: ${{ github.event.inputs.hw_access_key}}
+   HW_SECRET_KEY: ${{ github.event.inputs.hw_secret_key}}
 jobs:
   terraform:
     name: 'Terraform-CCE-huaweicloud'
