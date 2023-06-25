@@ -19,7 +19,6 @@ mv terraform /usr/local/bin
 terraform version   
 terraform -install-autocomplete
 
-### wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash
 
 ## Use
 terraform fmt
