@@ -1,7 +1,10 @@
 
 # terraform-workshop-huaweicloud
 
+
 ```bash
+######## wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash
+
 ## 配置本地华为云provider
 ## https://support.huaweicloud.com/terraform_faq/index.html
 
