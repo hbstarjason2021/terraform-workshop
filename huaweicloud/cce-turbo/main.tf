@@ -66,6 +66,7 @@ resource "huaweicloud_cce_node_pool" "node_pool" {
   scale_down_cooldown_time = 100
   priority                 = 1
   type                     = "vm"
+  runtime                  = "docker"
 
   root_volume {
     size       = 40
