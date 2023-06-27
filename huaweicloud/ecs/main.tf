@@ -83,6 +83,7 @@ sleep 5
 EOF
 
 # 注意有坑：设置了user_data字段后，admin_pass字段将无效
+# https://github.com/huaweicloud/terraform-provider-huaweicloud/blob/master/examples/ecs/userdata/main.tf
   
   network {
     uuid = huaweicloud_vpc_subnet.mysubnet.id
