@@ -55,9 +55,9 @@ resource "huaweicloud_compute_keypair" "mykeypair" {
 resource "huaweicloud_cce_node_pool" "node_pool" {
   cluster_id               = huaweicloud_cce_cluster.turbo.id
   name                     = "myccepool"
-  os                       = "EulerOS 2.9"
-  initial_node_count       = 2
-  flavor_id                = "c7.xlarge.2"
+  os                       = "EulerOS 2.9"   ### 	Ubuntu 20.04 server 64bit 
+  initial_node_count       = "1"
+  flavor_id                = "c7.2xlarge.2"   ### 通用计算增强型 | 8vCPUs | 16GiB | c7.2xlarge.2
   # availability_zone        = var.availability_zone
   key_pair                 = huaweicloud_compute_keypair.mykeypair.name
   scall_enable             = true
