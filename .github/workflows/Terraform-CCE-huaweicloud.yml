@@ -65,11 +65,23 @@ jobs:
          #sed -i '/local-registry/huaweicloud/huaweicloud/huaweicloud/huaweicloud/' provider.tf
          
          terraform init
+         ## terraform fmt -check
+         
          terraform validate -no-color
          #terraform plan -no-color
          terraform plan -input=false
          
          terraform apply -auto-approve -input=false
+         
+    #  - name: Terraform Plan
+    #    id: plan
+    #    if: github.event_name == 'pull_request'
+    #    run: terraform plan -no-color -input=false
+    #    continue-on-error: true
+
+    #  - name: Terraform Plan Status
+    #    if: steps.plan.outcome == 'failure'
+    #    run: exit 1
 
     #- name: Terraform Apply
     #  #if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
