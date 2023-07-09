@@ -1,12 +1,12 @@
 
 terraform {
-  required_version = ">= 0.13"
+  required_version = ">= 1.13"
 
   required_providers {
     huaweicloud = {
-      source = "huaweicloud/huaweicloud"
-      ### source  = "local-registry/huaweicloud/huaweicloud"
-      version = ">= 1.20.0"
+      #source = "huaweicloud/huaweicloud"
+      source  = "local-registry/huaweicloud/huaweicloud"
+      version = ">= 1.40.0"
     }
   }
 }
