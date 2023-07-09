@@ -1,6 +1,6 @@
-variable "region" {
-  type = string
-}
+#variable "region" {
+#  type = string
+#}
 
 variable "primary_dns" {
   default = "100.125.1.250"
