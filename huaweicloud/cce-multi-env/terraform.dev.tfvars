@@ -1,4 +1,4 @@
-region             = "cn-north-4"
+# region             = "cn-north-4"
 # availability_zone = ""
 env_name           = "dev"
 ccevpc_cidr        = "192.168.0.0/16"
