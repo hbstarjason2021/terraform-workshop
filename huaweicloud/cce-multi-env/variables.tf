@@ -23,6 +23,10 @@ variable "ccevpc_name" {
   type = string
 }
 
+variable "ccevpc_cidr" {
+  type = string
+}
+
 variable "ccesubnet_name" {
   type = string
 }
