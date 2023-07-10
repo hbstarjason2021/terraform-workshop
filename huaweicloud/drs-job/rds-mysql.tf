@@ -5,6 +5,7 @@ resource "random_password" "mypassword" {
   override_special = "!@#%^*-_=+"
 }
 
+### source  destination
 
 resource "huaweicloud_rds_instance" "myinstance" {
   name                = "mysql_instance"
