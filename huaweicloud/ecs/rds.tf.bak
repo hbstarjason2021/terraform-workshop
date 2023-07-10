@@ -7,7 +7,7 @@ resource "random_password" "mypassword" {
 
 resource "huaweicloud_rds_instance" "myinstance" {
   name                = "mysql_instance"
-  flavor              = "rds.mysql.c2.large.ha"
+  flavor              = "rds.mysql.n1.large.2.ha"   ### https://support.huaweicloud.com/productdesc-rds/rds_01_0034.html
   ha_replication_mode = "async"
   vpc_id              = huaweicloud_vpc.myvpc.id
   subnet_id           = huaweicloud_vpc_subnet.mysubnet.id
@@ -24,7 +24,7 @@ resource "huaweicloud_rds_instance" "myinstance" {
     #password = random_password.mypassword.result
   }
   volume {
-    type = "ULTRAHIGH"
+    type = "CLOUDSSD"  ### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/rds_instance
     size = 40
   }
 }
@@ -32,12 +32,12 @@ resource "huaweicloud_rds_instance" "myinstance" {
 
 resource "huaweicloud_rds_read_replica_instance" "myreplica" {
   name                = "myreplica"
-  flavor              = "rds.mysql.c2.large.rr"
+  flavor              = "rds.mysql.n1.large.2.rr"
   primary_instance_id = huaweicloud_rds_instance.myinstance.id
   availability_zone   = data.huaweicloud_availability_zones.myaz.names[1]
 
   volume {
-    type = "ULTRAHIGH"
+    type = "CLOUDSSD"
   }
   tags = {
     type = "readonly"
