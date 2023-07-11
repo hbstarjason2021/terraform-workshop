@@ -3,4 +3,5 @@
 
 使用kind部署k8s集群环境
 
-文档：https://www.yuque.com/zeyangli/tf/kind
+文档：https://www.yuque.com/zeyangli/tf/kind     
+https://jihulab.com/devopsvip/myiac
