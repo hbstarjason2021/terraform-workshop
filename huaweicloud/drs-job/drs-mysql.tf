@@ -14,11 +14,11 @@ resource "huaweicloud_drs_job" "drs_job" {
 
   destination_db {
     engine_type = "mysql"
-    instance_id = "27d0a136f5e7452b82f11163a32c4a51in01"
+    instance_id = "27d0a136f5e7452b82f11163a32c4a51in01"  ### huaweicloud_rds_instance.mysql.id
     ip = "<ip>"
     password = "<paasword>"
     port = 3306
-    subnet_id = "ae4c68a1-98e6-483a-bcf9-9404c55767cb"
+    subnet_id = "ae4c68a1-98e6-483a-bcf9-9404c55767cb"   ### huaweicloud_rds_instance.mysql.subnet_id
     user = "root"
   }
 
