@@ -8,7 +8,7 @@
 ## 配置本地华为云provider
 ## https://support.huaweicloud.com/terraform_faq/index.html
 
-PROVIDER_VERSION="1.50.0"
+PROVIDER_VERSION="1.51.0"
 wget https://jihulab.com/hbstarjason/ali-init/-/raw/main/terraform-provider-huaweicloud_${PROVIDER_VERSION}_linux_amd64.zip
 # curl -LO "https://jihulab.com/hbstarjason/ali-init/-/raw/main/terraform-provider-huaweicloud_1.47.1_linux_amd64.zip"
 
