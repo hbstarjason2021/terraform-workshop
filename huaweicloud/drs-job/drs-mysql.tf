@@ -1,6 +1,8 @@
 
 ### drs mysql
 
+### https://support.huaweicloud.com/api-drs/drs_03_0104.html
+
 #### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/drs_job
   
 
