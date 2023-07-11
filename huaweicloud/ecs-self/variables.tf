@@ -12,7 +12,7 @@
 #}
 
 variable "vpc_name" {
-  default = "vpc-basic"
+  default = "vpc-self"
 }
 
 variable "vpc_cidr" {
