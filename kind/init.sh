@@ -9,8 +9,9 @@ terraform version
 terraform -install-autocomplete
 
 ### install kind
+### https://github.com/kubernetes-sigs/kind/releases
 
-KIND_VESION="v0.19.0"
+KIND_VESION="v0.20.0"
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VESION}/kind-linux-amd64
 chmod +x ./kind
 mv ./kind /usr/local/bin/kind
