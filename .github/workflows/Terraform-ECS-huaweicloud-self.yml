@@ -1,4 +1,4 @@
-name: 'Terraform-CCE-huaweicloud-self'
+name: 'Terraform-ECS-huaweicloud-self'
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ env:
    HW_SECRET_KEY: ${{ github.event.inputs.hw_secret_key}}
 jobs:
   terraform:
-    name: 'Terraform-CCE-huaweicloud'
+    name: 'Terraform-ECS-huaweicloud-self'
     runs-on: ubuntu-latest
     #environment: production
 
