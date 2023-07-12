@@ -18,3 +18,6 @@ chmod +x ./kind
 mv ./kind /usr/local/bin/kind
 kind version
 
+### 
+docker pull kindest/node:v1.24.0
+
