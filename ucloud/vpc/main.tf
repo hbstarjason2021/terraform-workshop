@@ -1,6 +1,7 @@
 
 #### https://github.com/ucloud/terraform-provider-ucloud/tree/master/examples/vpc
 
+#### https://github.com/terraform-ucloud-modules/terraform-ucloud-uhost-instance
 
 provider "ucloud" {
   region = var.region
