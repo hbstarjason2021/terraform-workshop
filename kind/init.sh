@@ -18,7 +18,8 @@ chmod +x ./kind
 mv ./kind /usr/local/bin/kind
 kind version
 
-### 
+###   apt update -y && apt install docker.io -y
+
 docker pull kindest/node:v1.24.0
 
 docker pull hbstarjason/nginx-ingress-controller:v1.2.0
