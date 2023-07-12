@@ -75,6 +75,26 @@ resource "huaweicloud_compute_eip_associate" "associated" {
 }
 
 
+resource "null_resource" "wait_for_init" {
+  triggers = {
+    key = uuid()
+  }
+
+  provisioner "local-exec" {
+    command = <<EOF
+      sleep 5  
+apt-get update -y
+wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/ali.sh | bash
+sleep 15
+wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash
+sleep 5
+    EOF
+  }
+
+  depends_on = [huaweicloud_compute_instance.myinstance]
+}
+
+
 output "slb_eip_address" {
   value = huaweicloud_vpc_eip.myeip.address
 
