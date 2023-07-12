@@ -3,6 +3,8 @@
 
 #### https://github.com/terraform-ucloud-modules/terraform-ucloud-uhost-instance
 
+#### https://docs.ucloud.cn/terraform/quickstart
+
 provider "ucloud" {
   region = var.region
 }
