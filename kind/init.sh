@@ -21,3 +21,8 @@ kind version
 ### 
 docker pull kindest/node:v1.24.0
 
+docker pull hbstarjason/nginx-ingress-controller:v1.2.0
+docker tag  hbstarjason/nginx-ingress-controller:v1.2.0 k8s.gcr.io/ingress-nginx/controller:v1.2.0
+
+docker pull hbstarjason/kube-webhook-certgen:v1.1.1
+docker tag  hbstarjason/kube-webhook-certgen:v1.1.1 k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1
