@@ -12,7 +12,8 @@ terraform -install-autocomplete
 ### https://github.com/kubernetes-sigs/kind/releases
 
 KIND_VESION="v0.20.0"
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VESION}/kind-linux-amd64
+#curl -Lo ./kind https://kind.sigs.k8s.io/dl/${KIND_VESION}/kind-linux-amd64
+curl -Lo ./kind https://jihulab.com/hbstarjason/ali-init/-/raw/main/kind-linux-amd64-${KIND_VESION}
 chmod +x ./kind
 mv ./kind /usr/local/bin/kind
 kind version
