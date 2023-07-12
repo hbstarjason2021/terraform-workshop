@@ -1,4 +1,4 @@
-name: 'Terraform-CCE-huaweicloud'
+name: 'Terraform-CCE-huaweicloud-self'
 
 on:
   workflow_dispatch:
