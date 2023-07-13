@@ -10,8 +10,8 @@ variable "vpc_cidr" {
 }
 
 variable "subnet_name" {
-  #default = "subent-default"
-   type = string
+  default = "subnet-source"
+   #type = string
 }
 
 variable "subnet_cidr" {
