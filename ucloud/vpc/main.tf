@@ -14,13 +14,13 @@ provider "ucloud" {
   region = var.peer_region
 }
 
-resource "ucloud_vpc" "foo" {
+resource "ucloud_vpc" "vpc-bj" {
   name        = "tf-example-vpc-01"
   tag         = "tf-example"
   cidr_blocks = ["192.168.0.0/16"]
 }
 
-resource "ucloud_vpc" "bar" {
+resource "ucloud_vpc" "vpc-sh" {
   provider    = ucloud.shanghai
   name        = "tf-example-vpc-02"
   tag         = "tf-example"
