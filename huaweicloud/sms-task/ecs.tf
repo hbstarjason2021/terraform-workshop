@@ -58,7 +58,7 @@ output "secgroup_id" {
 }
 
 
-################################################
+####################################################
 
 resource "huaweicloud_compute_instance" "myinstance" {
   name               = "ecs-source"
@@ -76,6 +76,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   }
 }
 
+####################################################
 
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
