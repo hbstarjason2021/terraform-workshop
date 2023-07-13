@@ -35,7 +35,8 @@ output "image_id" {
 
 
 data "huaweicloud_vpc" "myvpc" {
-  name = var.vpc_name
+  # name = var.vpc_name
+   name = "vpc-source"
 }
 
 output "vpc_id" {
@@ -43,25 +44,28 @@ output "vpc_id" {
 }
 
 data "huaweicloud_vpc_subnet" "mysubnet" {
-  name = var.subnet_name
+  #name = var.subnet_name
+  name = "subnet-source"
 }
 
 output "subne_id" {
   value = data.huaweicloud_vpc_subnet.mysubnet.id
 }
 
-################################################
-/*
-data "huaweicloud_vpc_subnet" "mysubnet" {
-  id = var.subnet_id
-}
-output "subnet_vpc_id" {
-  value = data.huaweicloud_vpc_subnet.mysubnet.vpc_id
-}
-
 data "huaweicloud_networking_secgroup" "mysecgroup" {
   name = "sg-source"
 }
+
+output "secgroup_id" {
+  value = data.huaweicloud_networking_secgroup.mysecgroup.id
+}
+
+
+################################################
+/*
+
+
+
 
 resource "huaweicloud_compute_instance" "myinstance" {
   name               = "ecs-self"
