@@ -3,6 +3,11 @@ variable "vpc_name" {
   #type = string
 }
 
+variable "subnet_name" {
+  default = "subnet-source"
+   #type = string
+}
+
 /*
 variable "vpc_cidr" {
   #default = "172.16.0.0/16"
