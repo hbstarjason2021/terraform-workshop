@@ -31,7 +31,7 @@ data "huaweicloud_vpc" "myvpc" {
 }
 
 output "vpc_id" {
-  value = data.huaweicloud_vpcs.myvpc.id
+  value = data.huaweicloud_vpc.myvpc.id
 }
 
 ################################################
