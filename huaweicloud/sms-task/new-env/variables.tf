@@ -3,7 +3,7 @@ variable "vpc_name" {
 }
 
 variable "vpc_cidr" {
-  default = "172.16.0.0/16"
+  default = "192.168.0.0/16"
 }
 
 variable "subnet_name" {
@@ -11,11 +11,11 @@ variable "subnet_name" {
 }
 
 variable "subnet_cidr" {
-  default = "172.16.10.0/24"
+  default = "192.168.0.0/24"
 }
 
 variable "subnet_gateway" {
-  default = "172.16.10.1"
+  default = "192.168.0.1"
 }
 
 variable "primary_dns" {
