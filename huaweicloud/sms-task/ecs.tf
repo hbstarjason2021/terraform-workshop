@@ -67,7 +67,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   security_groups    = ["sg-source"]
   #security_group_ids = [data.huaweicloud_networking_secgroup.mysecgroup.id ]
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
-  system_disk_type   = "SSD"
+  system_disk_type   = "GPSSD"
   admin_pass         = "Huawei@1234" 
 
   
