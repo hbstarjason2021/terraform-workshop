@@ -1,6 +1,6 @@
 variable "vpc_name" {
-  #default = "vpc-basic"
-   type = string
+  default = "vpc-source"
+  #type = string
 }
 
 variable "vpc_cidr" {
