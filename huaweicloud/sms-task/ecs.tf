@@ -30,6 +30,12 @@ data "huaweicloud_vpc" "myvpc" {
   name = var.vpc_name
 }
 
+output "vpc_id" {
+  value = data.huaweicloud_vpcs.myvpc.id
+}
+
+################################################
+/*
 data "huaweicloud_vpc_subnet" "mysubnet" {
   id = var.subnet_id
 }
@@ -58,6 +64,9 @@ resource "huaweicloud_compute_instance" "myinstance" {
   }
 }
 
+*/
+########################################################
+
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
     type = "5_bgp"
@@ -74,3 +83,4 @@ resource "huaweicloud_compute_eip_associate" "associated" {
   public_ip   = huaweicloud_vpc_eip.myeip.address
   instance_id = huaweicloud_compute_instance.myinstance.id
 }
+
