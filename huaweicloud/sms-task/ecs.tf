@@ -21,8 +21,8 @@ data "huaweicloud_compute_flavors" "myflavor" {
   memory_size       = 1
 }
 
-output "flavor_id" {
-  value = data.huaweicloud_compute_flavors.myflavor.id
+output "flavor_name" {
+  value = data.huaweicloud_compute_flavors.myflavor.name
 }
 
 data "huaweicloud_images_image" "myimage" {
