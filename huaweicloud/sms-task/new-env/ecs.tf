@@ -50,7 +50,10 @@ resource "huaweicloud_compute_instance" "myinstance" {
 
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
-    type = "5_bgp"
+    type = "5_sbgp"
+    ### 5_bgp (dynamic BGP) 
+    ### 5_sbgp (static BGP)
+    ### the default value is 5_bgp
   }
   bandwidth {
     name        = "mybandwidth"
