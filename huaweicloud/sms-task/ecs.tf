@@ -77,9 +77,6 @@ resource "huaweicloud_compute_instance" "myinstance" {
 }
 
 
-########################################################
-/*
-
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
     type = "5_bgp"
@@ -97,4 +94,3 @@ resource "huaweicloud_compute_eip_associate" "associated" {
   instance_id = huaweicloud_compute_instance.myinstance.id
 }
 
-*/
