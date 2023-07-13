@@ -26,6 +26,11 @@ data "huaweicloud_images_image" "myimage" {
   most_recent = true
 }
 
+output "image_id" {
+  value = data.huaweicloud_images_image.myimage.id
+
+}
+
 data "huaweicloud_vpc" "myvpc" {
   name = var.vpc_name
 }
