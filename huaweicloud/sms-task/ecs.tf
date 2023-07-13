@@ -1,11 +1,3 @@
-data "huaweicloud_availability_zones" "myaz" {}
-
-data "huaweicloud_compute_flavors" "myflavor" {
-  availability_zone = data.huaweicloud_availability_zones.myaz.names[0]
-  performance_type  = "normal"
-  cpu_core_count    = 1
-  memory_size       = 1
-}
 
 ### 通用计算型 s6.small.1 
 ### Huawei Cloud EulerOS 2.0 标准版 64位| 公共镜像
@@ -20,7 +12,17 @@ data "huaweicloud_compute_flavors" "myflavor" {
 ### 云服务器名称：输入"ecs-source"
 ### 输入密码“Huawei@1234”
 
+data "huaweicloud_availability_zones" "myaz" {}
 
+data "huaweicloud_compute_flavors" "myflavor" {
+  availability_zone = data.huaweicloud_availability_zones.myaz.names[0]
+  performance_type  = "normal"
+  cpu_core_count    = 1
+  memory_size       = 1
+}
+
+
+/*
 data "huaweicloud_images_image" "myimage" {
   name        = "Huawei Cloud EulerOS 2.0 标准版 64位"
   most_recent = true
@@ -28,8 +30,9 @@ data "huaweicloud_images_image" "myimage" {
 
 output "image_id" {
   value = data.huaweicloud_images_image.myimage.id
-
 }
+*/
+
 
 data "huaweicloud_vpc" "myvpc" {
   name = var.vpc_name
