@@ -62,13 +62,9 @@ output "secgroup_id" {
 
 
 ################################################
-/*
-
-
-
 
 resource "huaweicloud_compute_instance" "myinstance" {
-  name               = "ecs-self"
+  name               = "ecs-source"
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
   #security_groups   = data.huaweicloud_networking_secgroup.myinstance.id
@@ -80,12 +76,13 @@ resource "huaweicloud_compute_instance" "myinstance" {
 
   
   network {
-    uuid = huaweicloud_vpc_subnet.mysubnet.id
+    uuid = data.huaweicloud_vpc_subnet.mysubnet.id
   }
 }
 
 
 ########################################################
+/*
 
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
