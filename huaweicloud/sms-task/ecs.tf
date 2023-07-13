@@ -22,7 +22,7 @@ data "huaweicloud_compute_flavors" "myflavor" {
 }
 
 data "huaweicloud_images_image" "myimage" {
-  name        = "Huawei Cloud EulerOS 2.0 标准版 64位"
+  name        = "Huawei Cloud EulerOS 2.0"
   most_recent = true
 }
 
@@ -61,7 +61,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
   security_groups    = data.huaweicloud_networking_secgroup.mysecgroup.id
-  security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id
+  #security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id
   
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "SSD"
