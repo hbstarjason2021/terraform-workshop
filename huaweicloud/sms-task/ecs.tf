@@ -21,6 +21,10 @@ data "huaweicloud_compute_flavors" "myflavor" {
   memory_size       = 1
 }
 
+output "flavor_id" {
+  value = data.huaweicloud_compute_flavors.myflavor.id
+}
+
 data "huaweicloud_images_image" "myimage" {
   name        = "Ubuntu 20.04 server 64bit"
   most_recent = true
