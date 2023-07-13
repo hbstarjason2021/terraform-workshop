@@ -21,8 +21,8 @@ data "huaweicloud_compute_flavors" "myflavor" {
   memory_size       = 1
 }
 
-output "flavor_name" {
-  value = data.huaweicloud_compute_flavors.myflavor.name
+output "flavor_id" {
+  value = data.huaweicloud_compute_flavors.myflavor.id
 }
 
 data "huaweicloud_images_image" "myimage" {
@@ -65,8 +65,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
   #security_groups    = data.huaweicloud_networking_secgroup.mysecgroup.id
-  #security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id
-  
+  security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id  
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "SSD"
   admin_pass        = "Huawei@1234" 
