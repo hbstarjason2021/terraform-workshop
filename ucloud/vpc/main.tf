@@ -14,9 +14,9 @@ provider "ucloud" {
   region = var.peer_region
 }
 
-resource "ucloud_udpn_connection" "default" {
-  peer_region = var.peer_region
-}
+#resource "ucloud_udpn_connection" "default" {
+#  peer_region = var.peer_region
+#}
 
 resource "ucloud_vpc" "foo" {
   name        = "tf-example-vpc-01"
@@ -32,7 +32,7 @@ resource "ucloud_vpc" "bar" {
 }
 
 resource "ucloud_vpc_peering_connection" "connection" {
-  depends_on  = [ucloud_udpn_connection.default]
+  #depends_on  = [ucloud_udpn_connection.default]
   vpc_id      = ucloud_vpc.foo.id
   peer_vpc_id = ucloud_vpc.bar.id
   peer_region = var.peer_region
