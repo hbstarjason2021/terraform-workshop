@@ -22,7 +22,7 @@ data "huaweicloud_compute_flavors" "myflavor" {
 }
 
 data "huaweicloud_images_image" "myimage" {
-  name        = "Huawei Cloud EulerOS 2.0"
+  name        = "Ubuntu 20.04 server 64bit"
   most_recent = true
 }
 
