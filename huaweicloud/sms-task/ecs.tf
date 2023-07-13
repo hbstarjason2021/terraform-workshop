@@ -21,17 +21,10 @@ data "huaweicloud_compute_flavors" "myflavor" {
   memory_size       = 1
 }
 
-
-/*
 data "huaweicloud_images_image" "myimage" {
   name        = "Huawei Cloud EulerOS 2.0 标准版 64位"
   most_recent = true
 }
-
-output "image_id" {
-  value = data.huaweicloud_images_image.myimage.id
-}
-*/
 
 
 data "huaweicloud_vpc" "myvpc" {
