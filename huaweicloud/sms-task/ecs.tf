@@ -67,8 +67,8 @@ resource "huaweicloud_compute_instance" "myinstance" {
   name               = "ecs-source"
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
-  #security_groups   = data.huaweicloud_networking_secgroup.myinstance.id
-  security_group_ids = data.huaweicloud_networking_secgroup.myinstance.id
+  security_groups    = data.huaweicloud_networking_secgroup.mysecgroup.id
+  security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id
   
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "SSD"
