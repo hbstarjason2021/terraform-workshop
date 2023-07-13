@@ -1,3 +1,13 @@
+/*
+### 目的端安装agent
+
+wget -t 3 -T 15 https://sms-agent-2-0-cn-north-1.obs.cn-north-1.myhuaweicloud.com/SMS-Agent.tar.gz
+tar -zxvf SMS-Agent.tar.gz   && cd SMS-Agent  &&    ./startup.sh
+
+sms.cn-north-4.myhuaweicloud.com
+
+*/
+
 ##### sms task 
 
 resource "huaweicloud_sms_server_template" "sms_server_template" {
