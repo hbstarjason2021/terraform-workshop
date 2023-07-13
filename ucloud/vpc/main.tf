@@ -5,6 +5,8 @@
 
 #### https://docs.ucloud.cn/terraform/quickstart
 
+#### https://docs.ucloud.cn/api/summary/regionlist
+
 provider "ucloud" {
   region = var.region
 }
