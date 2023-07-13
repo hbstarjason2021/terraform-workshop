@@ -42,6 +42,14 @@ output "vpc_id" {
   value = data.huaweicloud_vpc.myvpc.id
 }
 
+data "huaweicloud_vpc_subnet" "mysubnet" {
+  name = var.subnet_name
+}
+
+output "subne_id" {
+  value = data.huaweicloud_vpc_subnet.mysubnet.id
+}
+
 ################################################
 /*
 data "huaweicloud_vpc_subnet" "mysubnet" {
