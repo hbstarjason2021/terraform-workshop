@@ -18,7 +18,7 @@ terraform {
       
       ##source  = "local-registry/huaweicloud/huaweicloud"
       
-      version = "~>1.47"
+      version = "1.51.0"
     }
 
     null = {
