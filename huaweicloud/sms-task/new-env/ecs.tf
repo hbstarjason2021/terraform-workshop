@@ -38,15 +38,17 @@ resource "huaweicloud_compute_instance" "myinstance" {
   
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "GPSSD"
-  admin_pass        = "Huawei@1234" 
+  admin_pass         = "Huawei@1234" 
   #admin_pass        = random_password.password.result
-  
+  power_action       = "FORCE-OFF"   ############ON, OFF, REBOOT, FORCE-OFF and FORCE-REBOOT
 
   network {
     uuid = huaweicloud_vpc_subnet.mysubnet.id
   }
 }
 
+
+###########################################################################
 
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
