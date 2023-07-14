@@ -21,4 +21,5 @@ resource "huaweicloud_sms_task" "sms_task" {
   type = "MIGRATE_FILE"
   vm_template_id  = huaweicloud_sms_server_template.sms_server_template.id
   action     = "start"
+  use_public_ip ="true"
 }
