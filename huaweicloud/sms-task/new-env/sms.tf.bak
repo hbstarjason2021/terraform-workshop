@@ -13,6 +13,7 @@ sms.cn-north-4.myhuaweicloud.com
 resource "huaweicloud_sms_server_template" "sms_server_template" {
   availability_zone = "cn-north-4a"
   name = "ecs-dest"
+  bandwidth_size = "10"
 }
 
 resource "huaweicloud_sms_task" "sms_task" {
