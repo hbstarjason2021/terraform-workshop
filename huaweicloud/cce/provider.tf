@@ -6,7 +6,7 @@ terraform {
     huaweicloud = {
       source = "huaweicloud/huaweicloud"
       ### source  = "local-registry/huaweicloud/huaweicloud"
-      version = ">= 1.20.0"
+      version = "1.51.0"
     }
   }
 }
