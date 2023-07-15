@@ -13,6 +13,8 @@ locals {
   cluster_name = "learnk8s"
 }
 
+######### https://github.com/hyperbadger/terraform-aws-eks-kubeconfig
+
 module "eks-kubeconfig" {
   source  = "hyperbadger/eks-kubeconfig/aws"
   version = "1.0.0"
