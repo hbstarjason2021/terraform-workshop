@@ -10,7 +10,7 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 locals {
-  cluster_name = "learnk8s"
+  cluster_name = var.cluster_name
 }
 
 ######### https://github.com/hyperbadger/terraform-aws-eks-kubeconfig
