@@ -1,5 +1,6 @@
 resource "huaweicloud_vpc" "ccevpc" {
-  name = "ccevpc-${var.env_name}"
+  #name = "ccevpc-${var.env_name}"
+  name = "ccevpc"
   cidr = var.ccevpc_cidr
 }
 
