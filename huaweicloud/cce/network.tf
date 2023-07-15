@@ -1,7 +1,7 @@
 resource "huaweicloud_vpc" "ccevpc" {
   #name = "ccevpc-${var.env_name}"
   name = "ccevpc"
-  cidr = var.ccevpc_cidr
+  cidr = var.vpc_cidr
 }
 
 resource "huaweicloud_vpc_subnet" "mysubnet" {
