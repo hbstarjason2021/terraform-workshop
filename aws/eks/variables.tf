@@ -1,3 +1,4 @@
 variable "cluster_name" {
-  type        = string
+  #type        = string
+  efault      = "learnk8s"
 }
