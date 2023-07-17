@@ -16,6 +16,7 @@ locals {
 
 ######### https://github.com/hyperbadger/terraform-aws-eks-kubeconfig
 
+/*
 module "eks-kubeconfig" {
   source  = "hyperbadger/eks-kubeconfig/aws"
   version = "2.0.0"
@@ -29,6 +30,8 @@ resource "local_file" "kubeconfig" {
   content  = module.eks-kubeconfig.kubeconfig
   filename = "kubeconfig_${local.cluster_name}"
 }
+
+*/
 
 ######## https://github.com/terraform-aws-modules/terraform-aws-vpc
 
