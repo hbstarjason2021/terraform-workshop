@@ -19,6 +19,7 @@ locals {
 module "eks-kubeconfig" {
   source  = "hyperbadger/eks-kubeconfig/aws"
   version = "2.0.0"
+  cluster_name = local.cluster_name
 
   depends_on = [module.eks]
   cluster_id = module.eks.cluster_id
