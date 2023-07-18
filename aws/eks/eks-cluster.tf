@@ -1,3 +1,5 @@
+######## https://github.com/terraform-aws-modules/terraform-aws-eks
+
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.26.6"
