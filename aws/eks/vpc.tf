@@ -2,7 +2,7 @@
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  #version = "3.14.2"
+  version = "3.14.2"
 
   name = "utrains-vpc"
 
