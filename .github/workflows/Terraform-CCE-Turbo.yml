@@ -1,0 +1,74 @@
+name: 'Terraform-CCE-Turbo'
+
+on:
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  workflow_dispatch:
+    inputs:
+      hw_access_key:
+         description: 'HW_ACCESS_KEY'
+         required: true
+      hw_secret_key:
+         description: 'HW_SECRET_KEY'
+         required: true
+         
+#permissions:
+#  contents: read
+env:
+   #HW_ACCESS_KEY: ${{ secrets.HW_ACCESS_KEY }}
+   #HW_SECRET_KEY: ${{ secrets.HW_SECRET_KEY }}
+   HW_ACCESS_KEY: ${{ github.event.inputs.hw_access_key}}
+   HW_SECRET_KEY: ${{ github.event.inputs.hw_secret_key}}
+jobs:
+  terraform:
+    name: 'Terraform-CCE-Turbo'
+    runs-on: ubuntu-latest
+    #environment: production
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    #- name: Checkout
+    #  uses: actions/checkout@v3
+
+    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      #with:
+      #  cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      
+    - name: Terraform version   
+      run: terraform version 
+      
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    #- name: Terraform Init
+    #  run: terraform init
+
+    # Checks that all Terraform configuration files adhere to a canonical format
+    #- name: Terraform Format
+    #  run: terraform fmt -check
+
+    # Generates an execution plan for Terraform
+    - name: Terraform Plan
+      run: |
+         ## https://github.com/huaweicloud/terraform-provider-huaweicloud/releases
+         ## mkdir -p ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.47.1/linux_amd64/
+         ## cp terraform-provider-huaweicloud_v1.47.1 ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.47.1/linux_amd64/
+          
+         git clone https://github.com/hbstarjason2021/terraform-workshop
+         cd ./terraform-workshop/huaweicloud/cce-turbo
+         
+         #sed -i '/local-registry/huaweicloud/huaweicloud/huaweicloud/huaweicloud/' provider.tf
+         
+         terraform init
+         ## terraform fmt -check
+         
+         terraform validate -no-color
+         #terraform plan -no-color
+         terraform plan -input=false
+         
+         terraform apply -auto-approve -input=false
