@@ -127,7 +127,7 @@ resource "null_resource" "provision" {
     }
 
     inline = [
-      "apt-get update -y && apt install wget -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/ali.sh | bash"
+      "apt-get update -y && apt install wget -y  && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/ali.sh | bash"
     ]
   }
 }
