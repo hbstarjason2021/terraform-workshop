@@ -114,7 +114,7 @@ output "slb_eip_address" {
 
 
 resource "null_resource" "provision" {
-  depends_on = [huaweicloud_compute_eip_associate.myeip]
+  depends_on = [huaweicloud_compute_eip_associate.associated]
 
   provisioner "remote-exec" {
     connection {
