@@ -34,7 +34,8 @@ resource "huaweicloud_compute_keypair" "mykeypair" {
   #name     = "keypair-zhang"
   #key_file = "private_zhang.pem" 
   key_file = var.private_key_path
-  
+  #public_key = ""
+ 
 }
 
 resource "huaweicloud_compute_instance" "myinstance" {
