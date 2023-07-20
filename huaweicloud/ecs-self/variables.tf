@@ -6,6 +6,16 @@
 #    #type = "string"
 #}
 
+variable "keypair_name" {
+  description = "Keypair name"
+  default = "keypair-zhang"
+}
+
+variable "private_key_path" {
+  description = "The relative path of the private key"
+  default = "private_zhang.pem"
+}
+
 #variable "hw_region" {
 #  type    = string
 #  default = "cn-north-4"
