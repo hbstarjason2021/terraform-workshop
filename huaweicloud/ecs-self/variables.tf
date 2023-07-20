@@ -21,6 +21,10 @@ variable "private_key_path" {
 #  default = "cn-north-4"
 #}
 
+variable "ecs_name" {
+  default = "ecs-self"
+}
+
 variable "vpc_name" {
   default = "vpc-self"
 }
