@@ -48,6 +48,8 @@ jobs:
          git clone https://github.com/hbstarjason2021/terraform-workshop
          cd ./terraform-workshop/huaweicloud/ecs-self/
          
+         echo "${{ secrets.ECS_SELF_ID_RSA }}" > private_zhang.pem
+         
          #sed -i '/local-registry/huaweicloud/huaweicloud/huaweicloud/huaweicloud/' provider.tf
          
          terraform init
