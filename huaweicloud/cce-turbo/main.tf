@@ -14,6 +14,7 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
   //dns is required for cce node installing
   primary_dns   = "100.125.1.250"
   secondary_dns = "100.125.21.250"
+  # secondary_dns = "100.125.129.250"
   vpc_id        = huaweicloud_vpc.myvpc.id
 }
 
