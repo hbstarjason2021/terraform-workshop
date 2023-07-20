@@ -29,6 +29,14 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
   vpc_id        = huaweicloud_vpc.myvpc.id
 }
 
+resource "huaweicloud_compute_keypair" "mykeypair" {
+  #name     = var.keypair_name
+  name     = "keypair-zhang"
+  key_file = "private_zhang.pem" 
+  #key_file = var.private_key_path
+  
+}
+
 resource "huaweicloud_compute_instance" "myinstance" {
   name               = "ecs-self"
   image_id           = data.huaweicloud_images_image.myimage.id
@@ -38,6 +46,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "SSD"
+  key_pair          = huaweicloud_compute_keypair.mykeypair.name
   admin_pass        = "Huawei123" 
   #admin_pass        = random_password.password.result
   
@@ -74,6 +83,7 @@ resource "huaweicloud_compute_eip_associate" "associated" {
   instance_id = huaweicloud_compute_instance.myinstance.id
 }
 
+
 /*
 resource "null_resource" "wait_for_init" {
   triggers = {
@@ -100,4 +110,21 @@ sleep 5
 output "slb_eip_address" {
   value = huaweicloud_vpc_eip.myeip.address
 
+}
+
+
+resource "null_resource" "provision" {
+  depends_on = [huaweicloud_compute_eip_associate.myeip]
+
+  provisioner "remote-exec" {
+    connection {
+      user        = "root"
+      private_key = file(var.private_key_path)
+      host        = huaweicloud_vpc_eip.myeip.address
+    }
+
+    inline = [
+      "apt-get update -y && apt install wget -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash "
+    ]
+  }
 }
