@@ -56,7 +56,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   # period        = 1
   
   ## wget http://mirrors.myhuaweicloud.com/repo/mirrors_source.sh && sh mirrors_source.sh
-  user_data = "#!/bin/bash\napt-get update -y && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
+  user_data = "#!/bin/bash\n wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
 
 
 # 注意有坑：设置了user_data字段后，admin_pass字段将无效
@@ -127,7 +127,7 @@ resource "null_resource" "provision" {
     }
 
     inline = [
-      "apt-get update -y && apt install wget -y  && wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/ali.sh | bash"
+      " wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/ali.sh | bash"
     ]
   }
 }
