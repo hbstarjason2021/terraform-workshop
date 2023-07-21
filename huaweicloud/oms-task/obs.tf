@@ -25,7 +25,7 @@ resource "huaweicloud_obs_bucket" "obs" {
 #############################
 
 resource "huaweicloud_obs_bucket" "mywebsite" {
-  bucket = "mywebsite"
+  bucket = "mywebsite-${local.timestamp}"
 
   website {
     index_document = "index.html"
