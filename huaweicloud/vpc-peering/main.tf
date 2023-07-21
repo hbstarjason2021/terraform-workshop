@@ -110,6 +110,17 @@ resource "huaweicloud_networking_secgroup" "secgroup" {
   name        = "secgroup-peering"
 }
 
+# 安全组规则-开放22端口
+resource "huaweicloud_networking_secgroup_rule" "secgroup_rule_22" {
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  ports             = 22
+  remote_ip_prefix  = "0.0.0.0/0"
+  security_group_id = huaweicloud_networking_secgroup.secgroup.id
+}
+
+
 data "huaweicloud_compute_flavors" "flavors" {
   performance_type  = "normal"
   cpu_core_count    = 1
