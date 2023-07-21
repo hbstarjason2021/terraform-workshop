@@ -3,7 +3,7 @@ locals {
 	# ecs 服务器的密码
 	# ecspassword="${random_string.password.result}@wm"
 	# obs的名称
-	obsname = "obs-source-${local.timestamp}"
+	obsname = "obs-destination-${local.timestamp}"
   # obs桶策略
   obspolicy = jsonencode({"Statement":[{"Sid": "公共读-${local.obsname}","Effect": "Allow","Principal": {"ID": ["*"]},"Action": ["ListBucket","HeadBucket","GetBucketLocation","ListBucketVersions","GetObject","RestoreObject","GetObjectVersion"],"Resource": ["${local.obsname}","${local.obsname}/*"]}]})
 }
