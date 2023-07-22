@@ -9,7 +9,7 @@ terraform {
       # .terraform/providers/registry.terraform.io/tehcyx/kind/0.2.0/linux_amd64/terraform-provider-kind
 
       source  = "tehcyx/kind"
-      version = "0.2.0"
+      version = "0.0.13"
     }
     null = {
       source  = "hashicorp/null"
