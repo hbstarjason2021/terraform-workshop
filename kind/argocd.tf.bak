@@ -42,7 +42,7 @@ resource "null_resource" "wait_for_instatll_argocd" {
 
 resource "kubernetes_namespace" "argo-rollouts" {
   metadata {
-    name = "argocd"
+    name = "argo-rollouts
   }
 }
 
