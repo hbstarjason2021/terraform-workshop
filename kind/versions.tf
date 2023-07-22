@@ -1,8 +1,10 @@
 terraform {
   required_providers {
     kind = {
+      # https://github.com/tehcyx/terraform-provider-kind/releases
+
       source  = "tehcyx/kind"
-      version = "0.0.13"
+      version = "0.2.0"
     }
     null = {
       source  = "hashicorp/null"
