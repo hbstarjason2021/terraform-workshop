@@ -4,6 +4,7 @@ provider "helm" {
     cluster_ca_certificate = "${kind_cluster.default.cluster_ca_certificate}"
     client_certificate = "${kind_cluster.default.client_certificate}"
     client_key = "${kind_cluster.default.client_key}"
+    ### config_path = "~/.kube/config"
   }
 }
 
