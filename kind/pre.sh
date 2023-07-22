@@ -19,7 +19,8 @@ mv ./kind /usr/local/bin/kind
 kind version
 
 ### install kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+# curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -L "https://jihulab.com/hbstarjason/ali-init/-/raw/main/kubectl-v1.27.3" -o /usr/local/bin/kubectl
 chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 /usr/local/bin/kubectl version --client
