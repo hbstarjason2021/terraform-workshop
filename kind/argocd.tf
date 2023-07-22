@@ -18,7 +18,7 @@ resource "helm_release" "argocd" {
   version          = "5.41.1"
   create_namespace = true
 
-  #values = [
-  #  file("argocd/application.yaml")
-  #]
+  values = [
+    file("springboot-devops-demo-argocd.yaml")
+  ]
 }
