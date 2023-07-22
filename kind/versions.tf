@@ -1,7 +1,12 @@
+
+##### terraform providers
+
 terraform {
   required_providers {
     kind = {
+    
       # https://github.com/tehcyx/terraform-provider-kind/releases
+      # .terraform/providers/registry.terraform.io/tehcyx/kind/0.2.0/linux_amd64/
 
       source  = "tehcyx/kind"
       version = "0.2.0"
