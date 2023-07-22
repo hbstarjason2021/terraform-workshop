@@ -1,0 +1,55 @@
+
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+  insecure    = true
+}
+
+resource "kubernetes_namespace" "argocd" {
+  metadata {
+    name = "argocd"
+  }
+}
+
+/*
+resource "null_resource" "wait_for_instatll_ingress" {
+  triggers = {
+    key = uuid()
+  }
+*/
+
+  provisioner "local-exec" {
+    command = <<EOF
+      sleep 5  
+      #kubectl apply -f ${var.argocd_manifests}/install.yaml -n argo
+      kubectl -n argocd apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+      printf "\nWaiting for the app.kubernetes.io/name=argocd-server...\n"
+      kubectl wait --namespace argocd \
+        --for=condition=ready pod \
+	--selector=app.kubernetes.io/name=argocd-server \
+        --timeout=90s
+
+      sleep 20
+      kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+    EOF
+  }
+
+  depends_on = [kubernetes_namespace.argocd]
+}
+
+
+/*
+resource "null_resource" "wait_for_instatll_argo_ingress" {
+  triggers = {
+    key = uuid()
+  }
+
+  provisioner "local-exec" {
+    command = <<EOF
+      sleep 5  
+      kubectl apply -f ${var.argocd_manifests}/ingress.yaml -n argo
+    EOF
+  }
+
+  depends_on = [null_resource.wait_for_instatll_ingress]
+}
+*/
