@@ -4,6 +4,9 @@ provider "kubernetes" {
   insecure    = true
 }
 
+
+############ argocd
+
 resource "kubernetes_namespace" "argocd" {
   metadata {
     name = "argocd"
@@ -35,20 +38,32 @@ resource "null_resource" "wait_for_instatll_argocd" {
   depends_on = [kubernetes_namespace.argocd]
 }
 
+############ argo-rollouts
 
-/*
-resource "null_resource" "wait_for_instatll_argo_ingress" {
+resource "kubernetes_namespace" "argo-rollouts" {
+  metadata {
+    name = "argocd"
+  }
+}
+
+resource "null_resource" "wait_for_instatll_argo-rollouts" {
   triggers = {
     key = uuid()
   }
 
+#### kubectl apply -f ${var.argocd_manifests}/install.yaml -n argo
   provisioner "local-exec" {
     command = <<EOF
       sleep 5  
-      kubectl apply -f ${var.argocd_manifests}/ingress.yaml -n argo
+      kubectl -n argo-rollouts apply -f https://raw.githubusercontent.com/argoproj/argo-rollouts/stable/manifests/install.yaml
+
+      sleep 20
+      curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64 && \
+  chmod +x ./kubectl-argo-rollouts-linux-amd64 && \
+  sudo mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts && \
+  kubectl argo rollouts version
     EOF
   }
 
-  depends_on = [null_resource.wait_for_instatll_ingress]
+  depends_on = [kubernetes_namespace.argo-rollouts]
 }
-*/
