@@ -16,10 +16,10 @@ resource "null_resource" "wait_for_instatll_argocd" {
     key = uuid()
   }
 
+#### kubectl apply -f ${var.argocd_manifests}/install.yaml -n argo
   provisioner "local-exec" {
     command = <<EOF
       sleep 5  
-      #kubectl apply -f ${var.argocd_manifests}/install.yaml -n argo
       kubectl -n argocd apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
       printf "\nWaiting for the app.kubernetes.io/name=argocd-server...\n"
       kubectl wait --namespace argocd \
