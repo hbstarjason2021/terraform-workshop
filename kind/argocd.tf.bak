@@ -10,12 +10,11 @@ resource "kubernetes_namespace" "argocd" {
   }
 }
 
-/*
-resource "null_resource" "wait_for_instatll_ingress" {
+
+resource "null_resource" "wait_for_instatll_argocd" {
   triggers = {
     key = uuid()
   }
-*/
 
   provisioner "local-exec" {
     command = <<EOF
