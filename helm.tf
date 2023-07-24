@@ -30,3 +30,15 @@ resource "helm_release" "nginx_demo" {
   }
 }
 
+
+resource "helm_release" "kube-prometheus" {
+  name       = "kube-prometheus-stackr"
+  #namespace  = var.namespace
+  #version    = var.kube-version
+
+  # https://github.com/prometheus-community/helm-charts/releases
+
+  version    = "48.2.0"
+  repository = "https://prometheus-community.github.io/helm-charts"
+  chart      = "kube-prometheus-stack"
+}
