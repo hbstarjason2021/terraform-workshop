@@ -33,6 +33,8 @@ resource "helm_release" "nginx_demo" {
 
 resource "helm_release" "kube-prometheus" {
   name       = "kube-prometheus-stackr"
+  namespace  = "monitoring"
+  create_namespace = true
   #namespace  = var.namespace
   #version    = var.kube-version
 
