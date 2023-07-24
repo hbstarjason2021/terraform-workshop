@@ -43,4 +43,9 @@ resource "helm_release" "kube-prometheus" {
   version    = "48.2.0"
   repository = "https://prometheus-community.github.io/helm-charts"
   chart      = "kube-prometheus-stack"
+
+  set {
+    name  = "grafana.service.type"
+    value = "NodePort"
+  }
 }
