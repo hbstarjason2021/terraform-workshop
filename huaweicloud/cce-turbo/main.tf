@@ -33,6 +33,19 @@ resource "huaweicloud_vpc_subnet" "eni_test_2" {
   vpc_id        = huaweicloud_vpc.myvpc.id
 }
 
+resource "huaweicloud_vpc_eip" "myeip" {
+  publicip {
+    type = "5_bgp"
+  }
+  bandwidth {
+    name        = var.bandwidth_name
+    size        = 8
+    share_type  = "PER"
+    charge_mode = "traffic"
+  }
+}
+
+
 ##############################
 
 resource "huaweicloud_cce_cluster" "turbo" {
@@ -41,6 +54,7 @@ resource "huaweicloud_cce_cluster" "turbo" {
   vpc_id                 = huaweicloud_vpc.myvpc.id
   subnet_id              = huaweicloud_vpc_subnet.mysubnet.id
   container_network_type = "eni"
+  eip                    = huaweicloud_vpc_eip.myeip.address
   eni_subnet_id          = join(",", [
     huaweicloud_vpc_subnet.eni_test_1.ipv4_subnet_id,
     huaweicloud_vpc_subnet.eni_test_2.ipv4_subnet_id,
