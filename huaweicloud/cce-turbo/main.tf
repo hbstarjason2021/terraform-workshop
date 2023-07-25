@@ -38,7 +38,8 @@ resource "huaweicloud_vpc_eip" "myeip" {
     type = "5_bgp"
   }
   bandwidth {
-    name        = var.bandwidth_name
+    #name        = var.bandwidth_name  
+    name        = "turbo_bandwidth"
     size        = 8
     share_type  = "PER"
     charge_mode = "traffic"
