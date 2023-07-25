@@ -53,7 +53,7 @@ jobs:
     #  run: terraform fmt -check
 
     # Generates an execution plan for Terraform
-    - name: Terraform Plan
+    - name: Terraform Apply
       run: |
          ## https://github.com/huaweicloud/terraform-provider-huaweicloud/releases
          ## mkdir -p ~/.terraform.d/plugins/local-registry/huaweicloud/huaweicloud/1.47.1/linux_amd64/
