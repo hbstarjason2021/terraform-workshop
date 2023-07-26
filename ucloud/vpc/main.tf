@@ -7,6 +7,9 @@
 
 #### https://docs.ucloud.cn/api/summary/regionlist
 
+# export UCLOUD_PUBLIC_KEY="123"
+# export UCLOUD_PRIVATE_KEY="123456"
+
 provider "ucloud" {
   region = var.region
 }
