@@ -48,7 +48,7 @@ User Name,Access Key Id,Secret Access Key
 ### secret_key = XXXXXXXXXXXXXXXXXXX
 ```
 
-任务：
+## 四、任务Task
 
 目标：通过Terraform快速创建VPC。
 
@@ -106,6 +106,8 @@ terraform apply
 
 
 至此，在华为云的控制台上可以看到一个名为terraform_vpc的VPC已经创建。
+
+## 五、清理资源
 
 ```bash
 ## 删除资源
