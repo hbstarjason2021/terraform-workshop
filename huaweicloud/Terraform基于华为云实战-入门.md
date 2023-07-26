@@ -15,7 +15,9 @@ terraform -install-autocomplete
 ```bash
 ### 配置本地provider-huaweicloud
 ##下载地址：
-https://github.com/huaweicloud/terraform-provider-huaweicloud/releases
+https://github.com/huaweicloud/terraform-provider-huaweicloud/releases  
+
+## https://support.huaweicloud.com/terraform_faq/index.html
 
 ### 以huaweicloud_1.47.1版本为例，本人已搬运回国内网络
 curl -LO "https://jihulab.com/hbstarjason/ali-init/-/raw/main/terraform-provider-huaweicloud_1.47.1_linux_amd64.zip"
