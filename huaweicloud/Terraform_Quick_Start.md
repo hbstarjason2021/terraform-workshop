@@ -57,8 +57,6 @@ User Name,Access Key Id,Secret Access Key
 
 ### https://support.huaweicloud.com/qs-terraform/index.html
 
-
-
 terraform {
   required_version = ">= 0.13"
 
