@@ -47,7 +47,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
 }
 
 resource "huaweicloud_nat_gateway" "mynat" {
-  name                = turbo_nat-gateway
+  name                = "turbo_nat-gateway"
   spec                = "1"
   subnet_id           = huaweicloud_vpc_subnet.mysubnet.id
   vpc_id              = huaweicloud_vpc.myvpc.id
