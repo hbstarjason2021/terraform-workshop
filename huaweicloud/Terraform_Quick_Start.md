@@ -55,6 +55,8 @@ User Name,Access Key Id,Secret Access Key
 ```bash
 ### 在工作目录下创建“main.tf”文件
 
+### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs
+
 ### https://support.huaweicloud.com/qs-terraform/index.html
 
 terraform {
