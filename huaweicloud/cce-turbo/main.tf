@@ -46,6 +46,18 @@ resource "huaweicloud_vpc_eip" "myeip" {
   }
 }
 
+resource "huaweicloud_nat_gateway" "mynat" {
+  name                = turbo_nat-gateway
+  spec                = "1"
+  internal_network_id = huaweicloud_vpc_subnet.mysubnet
+  router_id           = huaweicloud_vpc.myvpc.id
+}
+
+resource "huaweicloud_nat_snat_rule" "mysnat" {
+  nat_gateway_id = huaweicloud_nat_gateway.mynat.id
+  network_id     = huaweicloud_vpc_subnet.mysubnet.id
+  floating_ip_id = huaweicloud_vpc_eip.myeip.id
+}
 
 ##############################
 
