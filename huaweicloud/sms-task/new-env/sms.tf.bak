@@ -6,6 +6,8 @@ tar -zxvf SMS-Agent.tar.gz   && cd SMS-Agent  &&    ./startup.sh
 
 sms.cn-north-4.myhuaweicloud.com
 
+./startup.sh quiet myak mysk sms.cn-north-4.myhuaweicloud.com
+
 */
 
 ##### sms task 
