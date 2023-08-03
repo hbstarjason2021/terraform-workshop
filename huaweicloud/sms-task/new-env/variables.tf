@@ -1,5 +1,5 @@
 variable "vpc_name" {
-  default = "vpc-source"
+  default = "vpc-source-new"
 }
 
 variable "vpc_cidr" {
@@ -7,7 +7,7 @@ variable "vpc_cidr" {
 }
 
 variable "subnet_name" {
-  default = "subnet-source"
+  default = "subnet-source-new"
 }
 
 variable "subnet_cidr" {
