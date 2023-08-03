@@ -45,6 +45,8 @@ resource "huaweicloud_compute_instance" "myinstance" {
   network {
     uuid = huaweicloud_vpc_subnet.mysubnet.id
   }
+
+
 }
 
 
@@ -75,3 +77,24 @@ output "slb_eip_address" {
   value = huaweicloud_vpc_eip.myeip.address
 
 }
+
+###############################################################
+
+resource "null_resource" "provision" {
+  depends_on = [huaweicloud_compute_eip_associate.associated]
+
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = "root"
+      #private_key = file(var.private_key_path)
+      password    = "Huawei@1234"
+      host        = huaweicloud_vpc_eip.myeip.address
+    }
+
+    inline = [
+      "bash install_agent.sh"
+    ]
+  }
+}
+
