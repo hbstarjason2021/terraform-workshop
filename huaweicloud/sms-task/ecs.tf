@@ -95,3 +95,7 @@ resource "huaweicloud_compute_eip_associate" "associated" {
   instance_id = huaweicloud_compute_instance.myinstance.id
 }
 
+output "slb_eip_address" {
+  value = huaweicloud_vpc_eip.myeip.address
+
+}
