@@ -1,5 +1,7 @@
 #!/bin/bash
 
+######## bash install_agent.sh <AK> <SK>
+
 apt install -y rsync wget 
 
 wget -t 3 -T 15 https://sms-agent-2-0-cn-north-1.obs.cn-north-1.myhuaweicloud.com/SMS-Agent.tar.gz 
@@ -7,8 +9,8 @@ wget -t 3 -T 15 https://sms-agent-2-0-cn-north-1.obs.cn-north-1.myhuaweicloud.co
 # 将本内容在linux机器中生成一个.sh文件, 在SMS-Agent.tar.gz安装包目录bash执行该sh文件即可
 # ak sk sms域名替换成真正的，{}不保留
 
-## HW_ACCESS_KEY=""
-## HW_SECRET_KEY=""
+HW_ACCESS_KEY="$1"
+HW_SECRET_KEY="$2"
 DOMAIN="sms.cn-north-4.myhuaweicloud.com"
 
 tar -zxvf SMS-Agent.tar.gz
