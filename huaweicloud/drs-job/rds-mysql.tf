@@ -35,9 +35,16 @@ resource "huaweicloud_rds_instance" "myinstance" {
     type = "CLOUDSSD"  ### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/rds_instance
     size = 40
   }
+
+  backup_strategy {
+    start_time = "03:00-04:00"
+    keep_days  = 7
+  }
+
 }
 
 
+/*
 resource "huaweicloud_rds_read_replica_instance" "myreplica" {
   name                = "myreplica"
   flavor              = "rds.mysql.n1.large.2.rr"
@@ -51,3 +58,4 @@ resource "huaweicloud_rds_read_replica_instance" "myreplica" {
     type = "readonly"
   }
 }
+*/
