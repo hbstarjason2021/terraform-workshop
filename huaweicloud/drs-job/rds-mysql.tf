@@ -47,6 +47,30 @@ resource "huaweicloud_rds_instance" "myinstance" {
 
 }
 
+resource "huaweicloud_vpc_eip" "myeip" {
+  publicip {
+    type = "5_bgp"
+  }
+  bandwidth {
+    name        = "test"
+    size        = 5
+    share_type  = "PER"
+    charge_mode = "traffic"
+  }
+}
+
+# get the port of rds instance by private_ip
+data "huaweicloud_networking_port" "rds_port" {
+  network_id = huaweicloud_vpc_subnet.mysubnet.id
+  fixed_ip   = huaweicloud_rds_instance.myinstance.private_ips[0]
+}
+
+resource "huaweicloud_vpc_eip_associate" "associated" {
+  public_ip = huaweicloud_vpc_eip.myeip.address
+  port_id   = data.huaweicloud_networking_port.rds_port.id
+}
+
+
 
 /*
 resource "huaweicloud_rds_read_replica_instance" "myreplica" {
