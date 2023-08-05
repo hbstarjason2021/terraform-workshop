@@ -82,6 +82,7 @@ resource "huaweicloud_vpc_eip_associate" "associated" {
 }
 
 
+/*
 resource "null_resource" "setup_db" {
 
   provisioner "local-exec" {
@@ -92,6 +93,7 @@ resource "null_resource" "setup_db" {
 
   depends_on = [huaweicloud_vpc_eip_associate.associated]
 }
+*/
 
 ##############################
 
