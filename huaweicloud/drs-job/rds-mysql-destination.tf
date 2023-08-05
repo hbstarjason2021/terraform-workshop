@@ -1,10 +1,4 @@
 
-data "huaweicloud_rds_flavors" "flavor" {
-  db_type       = "MySQL"
-  db_version    = "5.7"
-  #instance_mode = "ha"
-}
-
 ################# source  destination
 
 resource "huaweicloud_rds_instance" "myinstance" {
