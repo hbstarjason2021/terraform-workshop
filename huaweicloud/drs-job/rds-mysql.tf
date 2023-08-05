@@ -15,8 +15,9 @@ data "huaweicloud_rds_flavors" "flavor" {
 ################# source  destination
 
 resource "huaweicloud_rds_instance" "myinstance" {
-  name                = "mysql_rds-${count.index}"
-  count               = "2"
+  #name                = "mysql_rds-${count.index}"
+  #count               = "2"
+  name                = "rds_mysql_57"
   #flavor              = "rds.mysql.n1.large.2.ha"   ### https://support.huaweicloud.com/productdesc-rds/rds_01_0034.html
   flavor              = "rds.mysql.n1.large.2"
 
