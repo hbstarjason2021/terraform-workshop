@@ -80,7 +80,7 @@ resource "huaweicloud_vpc_eip_associate" "associated" {
 
 ##############################
 
-
+/*
 resource "huaweicloud_rds_read_replica_instance" "myreplica" {
   name                = "myreplica"
   flavor              = "rds.mysql.n1.large.2.rr"
@@ -94,4 +94,4 @@ resource "huaweicloud_rds_read_replica_instance" "myreplica" {
     type = "readonly"
   }
 }
-
+*/
