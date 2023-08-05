@@ -40,10 +40,10 @@ resource "huaweicloud_rds_instance" "myinstance" {
     size = 40
   }
 
-  backup_strategy {
-    start_time = "03:00-04:00"
-    keep_days  = 7
-  }
+  #backup_strategy {
+  #  start_time = "03:00-04:00"
+  #  keep_days  = 7
+  #}
 
 }
 
