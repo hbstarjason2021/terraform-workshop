@@ -5,18 +5,22 @@ resource "random_password" "mypassword" {
   override_special = "!@#%^*-_=+"
 }
 
+
 data "huaweicloud_rds_flavors" "flavor" {
   db_type       = "MySQL"
   db_version    = "5.7"
-  instance_mode = "ha"
+  #instance_mode = "ha"
 }
 
 ### source  destination
 
 resource "huaweicloud_rds_instance" "myinstance" {
   name                = "mysql_instance"
-  flavor              = "rds.mysql.n1.large.2.ha"   ### https://support.huaweicloud.com/productdesc-rds/rds_01_0034.html
-  ha_replication_mode = "async"
+  #flavor              = "rds.mysql.n1.large.2.ha"   ### https://support.huaweicloud.com/productdesc-rds/rds_01_0034.html
+  flavor              = "rds.mysql.n1.large.2"
+
+  #ha_replication_mode = "async"
+
   vpc_id              = huaweicloud_vpc.myvpc.id
   subnet_id           = huaweicloud_vpc_subnet.mysubnet.id
   security_group_id   = huaweicloud_networking_secgroup.secgroup.id
@@ -28,8 +32,8 @@ resource "huaweicloud_rds_instance" "myinstance" {
     type     = "MySQL"
     version  = "5.7"
     #password = var.rds_password
-    #password = "Huawei@123"
-    password = random_password.mypassword.result
+    password = "Huawei@123"
+    #password = random_password.mypassword.result
   }
   volume {
     type = "CLOUDSSD"  ### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/rds_instance
