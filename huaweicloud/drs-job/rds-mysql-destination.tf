@@ -1,7 +1,7 @@
 
 ################# source  destination
 
-resource "huaweicloud_rds_instance" "myinstance" {
+resource "huaweicloud_rds_instance" "myinstance_dest" {
   #name                = "mysql_rds-${count.index}"
   #count               = "2"
   name                = "rds_mysql_57_destination"
