@@ -12,7 +12,7 @@ data "huaweicloud_rds_flavors" "flavor" {
   #instance_mode = "ha"
 }
 
-### source  destination
+################# source  destination
 
 resource "huaweicloud_rds_instance" "myinstance" {
   name                = "mysql_instance"
@@ -40,6 +40,8 @@ resource "huaweicloud_rds_instance" "myinstance" {
     size = 40
   }
 
+  charging_mode         = "postPaid"
+  
   #time_zone = "UTC+08:00"
   #param_group_id  = "3bc1e9cc0d34404b9225ed7a58fb284epr01"
   #enterprise_project_id = “”
