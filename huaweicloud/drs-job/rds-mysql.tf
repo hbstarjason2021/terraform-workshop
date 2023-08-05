@@ -1,4 +1,5 @@
 
+
 resource "random_password" "mypassword" {
   length           = 12
   special          = true
