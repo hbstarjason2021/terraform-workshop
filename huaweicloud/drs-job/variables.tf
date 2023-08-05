@@ -10,6 +10,12 @@
 #  default = "cn-north-4"
 #}
 
+
+variable "rds_password" {
+  default = "Zh9NTF8=919w"
+}
+
+
 variable "vpc_name" {
   default = "vpc-basic"
 }
