@@ -34,8 +34,8 @@ resource "huaweicloud_rds_instance" "myinstance" {
   db {
     type     = "MySQL"
     version  = "5.7"
-    #password = var.rds_password
-    password = "Zh9NTF8=919w"
+    password = var.rds_password
+    #password = "Zh9NTF8=919w"
     #password = random_password.mypassword.result
   }
   volume {
