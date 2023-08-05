@@ -26,11 +26,13 @@ resource "huaweicloud_drs_job" "drs_job" {
 
   source_db {
     engine_type = "mysql"
-    instance_id = huaweicloud_rds_instance.myinstance.id
-    ip = huaweicloud_rds_instance.myinstance.private_ips[0]
-    password = random_password.mypassword.result
+    #instance_id = huaweicloud_rds_instance.myinstance.id
+    #ip = huaweicloud_rds_instance.myinstance.private_ips[0]
+    ip = "<mysql_ip>"
+    #password = random_password.mypassword.result
+    password = "Cloud12#$"
     port = 3306
-    subnet_id = huaweicloud_vpc_subnet.mysubnet.id
+    #subnet_id = huaweicloud_vpc_subnet.mysubnet.id
     user = "root"
     # ssl_link    = false
   }
