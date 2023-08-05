@@ -40,6 +40,10 @@ resource "huaweicloud_rds_instance" "myinstance" {
     size = 40
   }
 
+  #time_zone = "UTC+08:00"
+  #param_group_id  = "3bc1e9cc0d34404b9225ed7a58fb284epr01"
+  #enterprise_project_id = “”
+
   #backup_strategy {
   #  start_time = "03:00-04:00"
   #  keep_days  = 7
