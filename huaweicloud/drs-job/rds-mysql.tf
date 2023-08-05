@@ -32,8 +32,8 @@ resource "huaweicloud_rds_instance" "myinstance" {
     type     = "MySQL"
     version  = "5.7"
     #password = var.rds_password
-    password = "Huawei@123"
-    #password = random_password.mypassword.result
+    #password = "Huawei@123"
+    password = random_password.mypassword.result
   }
   volume {
     type = "CLOUDSSD"  ### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/rds_instance
@@ -46,6 +46,8 @@ resource "huaweicloud_rds_instance" "myinstance" {
   #}
 
 }
+
+####################
 
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
@@ -70,7 +72,7 @@ resource "huaweicloud_vpc_eip_associate" "associated" {
   port_id   = data.huaweicloud_networking_port.rds_port.id
 }
 
-
+##############################
 
 /*
 resource "huaweicloud_rds_read_replica_instance" "myreplica" {
