@@ -81,6 +81,18 @@ resource "huaweicloud_vpc_eip_associate" "associated" {
   port_id   = data.huaweicloud_networking_port.rds_port.id
 }
 
+
+resource "null_resource" "setup_db" {
+
+  provisioner "local-exec" {
+    command = <<EOF
+        mysql -u root -p Zh9NTF8=919w-h ${huaweicloud_vpc_eip.myeip.address} < mall.sql
+    EOF
+  }
+
+  depends_on = [huaweicloud_networking_eip_associate.associated]
+}
+
 ##############################
 
 /*
