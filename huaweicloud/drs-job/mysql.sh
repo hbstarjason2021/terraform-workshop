@@ -1,5 +1,5 @@
 
-mysql_host=""
+mysql_host=$(ifconfig eth0 |grep "inet "| awk '{print $2}')
 
 ## mysql -u root -h $mysql_host -p -e "create database loadtest"
 ## Cloud12#$
