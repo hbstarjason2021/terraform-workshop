@@ -20,9 +20,9 @@ resource "huaweicloud_rds_instance" "myinstance_dest" {
   db {
     type     = "MySQL"
     version  = "5.7"
-    #password = var.rds_password
+    password = var.rds_password
     #password = "Zh9NTF8=919w"
-    password = random_password.mypassword.result
+    #password = random_password.mypassword.result
   }
   volume {
     type = "CLOUDSSD"  ### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/rds_instance
