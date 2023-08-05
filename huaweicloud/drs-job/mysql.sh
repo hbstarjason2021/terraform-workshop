@@ -1,3 +1,4 @@
+#!/usr/bin/expect
 
 ### apt-get install expect
 
@@ -6,7 +7,7 @@ mysql_host=$(ifconfig eth0 |grep "inet "| awk '{print $2}')
 ## mysql -u root -h $mysql_host -p -e "create database loadtest"
 ## Cloud12#$
 
-#!/usr/bin/expect
+
 spawn mysql -u root -h $mysql_host -p -e "create database loadtest"
 expect "*password"
 send "Cloud12#$\n"
