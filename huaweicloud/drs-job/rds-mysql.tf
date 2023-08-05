@@ -90,7 +90,7 @@ resource "null_resource" "setup_db" {
     EOF
   }
 
-  depends_on = [huaweicloud_networking_eip_associate.associated]
+  depends_on = [huaweicloud_vpc_eip_associate.associated]
 }
 
 ##############################
