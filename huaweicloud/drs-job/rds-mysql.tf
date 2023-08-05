@@ -80,12 +80,12 @@ resource "huaweicloud_vpc_eip_associate" "associated" {
 
 ##############################
 
-/*
+
 resource "huaweicloud_rds_read_replica_instance" "myreplica" {
   name                = "myreplica"
   flavor              = "rds.mysql.n1.large.2.rr"
   primary_instance_id = huaweicloud_rds_instance.myinstance.id
-  availability_zone   = data.huaweicloud_availability_zones.myaz.names[1]
+  availability_zone   = data.huaweicloud_availability_zones.myaz.names[3]
 
   volume {
     type = "CLOUDSSD"
@@ -94,4 +94,4 @@ resource "huaweicloud_rds_read_replica_instance" "myreplica" {
     type = "readonly"
   }
 }
-*/
+
