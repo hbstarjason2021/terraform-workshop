@@ -12,7 +12,7 @@
 
 
 variable "rds_password" {
-  default = "Zh9NTF8=919w"
+  default = "Zh9NTF8919w"
 }
 
 
