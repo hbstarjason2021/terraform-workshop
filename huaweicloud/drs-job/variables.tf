@@ -16,7 +16,7 @@ variable "subnet_name" {
 }
 
 variable "sg_source" {
-  default = "sg-source"
+  default = "my_secgroup_drs"
   #type = string
 }
 
