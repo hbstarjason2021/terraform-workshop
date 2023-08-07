@@ -1,6 +1,7 @@
 # 创建安全组
 resource "huaweicloud_networking_secgroup" "secgroup" {
-  name = "my_secgroup_${local.timestamp}"
+  %name = "my_secgroup_${local.timestamp}"
+  name = "my_secgroup_drs"
 }
 # 安全组规则-开放80端口
 resource "huaweicloud_networking_secgroup_rule" "secgroup_rule_80" {
