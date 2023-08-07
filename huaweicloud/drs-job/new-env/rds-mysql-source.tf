@@ -1,10 +1,11 @@
 
-
+/*
 resource "random_password" "mypassword" {
   length           = 12
   special          = true
   override_special = "!@#%^*-_=+"
 }
+*/
 
 
 data "huaweicloud_rds_flavors" "flavor" {
