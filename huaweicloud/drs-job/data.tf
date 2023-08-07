@@ -18,7 +18,7 @@ output "subne_id" {
 }
 
 data "huaweicloud_networking_secgroup" "mysecgroup" {
-  name = var.sg-source
+  name = var.sg_source
   #name = "sg-source"
 }
 
