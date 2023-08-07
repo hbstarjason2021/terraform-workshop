@@ -11,8 +11,8 @@ resource "huaweicloud_drs_job" "drs_job" {
 
   destination_db {
     engine_type = "mysql"
-    instance_id = data.huaweicloud_rds_instance.myinstance_dest.id
-    ip = data.huaweicloud_rds_instance.myinstance_dest.private_ips[0]
+    instance_id = data.huaweicloud_rds_instances.myinstance_dest.id
+    ip = data.huaweicloud_rds_instances.myinstance_dest.private_ips[0]
     #password = random_password.mypassword.result
     password = var.rds_password
     port = 3306
@@ -22,8 +22,8 @@ resource "huaweicloud_drs_job" "drs_job" {
 
   source_db {
     engine_type = "mysql"
-    instance_id = data.huaweicloud_rds_instance.myinstance.id
-    ip = data.huaweicloud_rds_instance.myinstance.private_ips[0]
+    instance_id = data.huaweicloud_rds_instances.myinstance.id
+    ip = data.huaweicloud_rds_instances.myinstance.private_ips[0]
     #password = random_password.mypassword.result
     password = var.rds_password
     port = 3306
