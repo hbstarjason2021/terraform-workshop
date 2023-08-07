@@ -11,6 +11,10 @@ resource "huaweicloud_drs_job" "drs_job" {
   engine_type = "mysql"
   name = "drs-test"
   type = "migration"
+  # migration: Online Migration
+  # sync: Data Synchronization
+  # cloudDataGuard: Disaster Recovery
+
   # net_type       = "eip"
   # migration_type = "FULL_INCR_TRANS"
 
