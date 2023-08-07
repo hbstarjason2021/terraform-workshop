@@ -29,7 +29,7 @@ output "secgroup_id" {
 #################################
 
 data "huaweicloud_rds_instances"  "myinstance_dest"{
-  name = "rds_mysql_57_destination"
+  name = var.rds_dest
 }
 
 output "myinstance_dest_id" {
@@ -37,7 +37,7 @@ output "myinstance_dest_id" {
 }
 
 data "huaweicloud_rds_instances"  "myinstance"{
-  name = "rds_mysql_57"
+  name = var.rds_source
 }
 
 output "myinstance_id" {
