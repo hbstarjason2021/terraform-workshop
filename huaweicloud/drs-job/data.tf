@@ -36,7 +36,7 @@ output "myinstance_dest_id" {
   value = data.huaweicloud_rds_instance.myinstance_dest.id
 }
 
-data "huaweicloud_rds_instance"  "myinstance_dest"{
+data "huaweicloud_rds_instance"  "myinstance"{
   name = "rds_mysql_57"
 }
 
