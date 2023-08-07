@@ -25,3 +25,21 @@ data "huaweicloud_networking_secgroup" "mysecgroup" {
 output "secgroup_id" {
   value = data.huaweicloud_networking_secgroup.mysecgroup.id
 }
+
+#################################
+
+data "huaweicloud_rds_instance"  "myinstance_dest"{
+  name = "rds_mysql_57_destination"
+}
+
+output "myinstance_dest_id" {
+  value = data.huaweicloud_rds_instance.myinstance_dest.id
+}
+
+data "huaweicloud_rds_instance"  "myinstance_dest"{
+  name = "rds_mysql_57"
+}
+
+output "myinstance_id" {
+  value = data.huaweicloud_rds_instance.myinstance.id
+}
