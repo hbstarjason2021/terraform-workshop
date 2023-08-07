@@ -4,6 +4,16 @@ variable "rds_password" {
   #type = string
 }
 
+variable "rds_dest" {
+  default = "rds_mysql_57_destination"
+  #type = string
+}
+
+variable "rds_source" {
+  default = "rds_mysql_57"
+  #type = string
+}
+
 
 variable "vpc_name" {
   default = "vpc-basic"
