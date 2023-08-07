@@ -6,12 +6,17 @@ variable "rds_password" {
 
 
 variable "vpc_name" {
-  default = "vpc-basic"
+  default = "vpc-source"
   #type = string
 }
 
 variable "subnet_name" {
-  default = "subent-default"
+  default = "subent-source"
+  #type = string
+}
+
+variable "sg_source" {
+  default = "sg-source"
   #type = string
 }
 
