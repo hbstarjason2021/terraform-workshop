@@ -1,10 +1,10 @@
 
-### 
+### ### terraform workspace new 
 
 resource "huaweicloud_drs_job" "drs_job" {
   direction = "up"
   engine_type = "mysql"
-  name = "drs-test"
+  name = var.rds_job_name
   type = "migration"
 
   # net_type       = "eip"
