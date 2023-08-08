@@ -1,3 +1,7 @@
+variable "rds_job_name" {
+  type = string
+}
+
 
 variable "rds_dest" {
   #default = "rds_mysql_57_destination"
