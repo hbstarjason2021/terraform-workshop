@@ -1,5 +1,8 @@
 
-### ### terraform workspace new 
+###  terraform workspace new  drs-demo  ### <drs_job_name>
+###  terraform workspace select drs-demo  
+###  terraform plan -var-file=terraform.drs-demo.tfvars
+###  terraform apply -var-file=terraform.drs-demo.tfvars
 
 resource "huaweicloud_drs_job" "drs_job" {
   direction = "up"
