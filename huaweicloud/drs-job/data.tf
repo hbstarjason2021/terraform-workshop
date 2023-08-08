@@ -44,3 +44,10 @@ output "myinstance_id" {
   value = data.huaweicloud_rds_instances.myinstance.id
 }
 
+output "myinstance_ip" {
+  value = data.huaweicloud_rds_instances.myinstance.instances[0].fixed_ip
+}
+
+output "myinstance_dest_ip" {
+  value = data.huaweicloud_rds_instances.myinstance_dest.instances[0].fixed_ip
+}
