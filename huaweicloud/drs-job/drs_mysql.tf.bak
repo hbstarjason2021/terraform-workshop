@@ -25,7 +25,7 @@ resource "huaweicloud_drs_job" "drs_job" {
     password = var.rds_password_dest
     port = var.rds_port_dest
     subnet_id = data.huaweicloud_vpc_subnet.mysubnet.id
-    user = var.rds_port_dest
+    user = var.rds_user_dest
   }
 
   source_db {
