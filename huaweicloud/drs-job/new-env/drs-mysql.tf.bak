@@ -18,6 +18,7 @@ resource "huaweicloud_drs_job" "drs_job" {
   # net_type       = "eip"
   net_type       = "vpc"
   # migration_type = "FULL_INCR_TRANS"
+  # start_time = "yyyy-MM-dd HH:mm:ss" 
 
   destination_db {
     engine_type = "mysql"
