@@ -1,18 +1,45 @@
 
-variable "rds_password" {
-  default = "Zh9NTF8919w"
-  #type = string
-}
-
 variable "rds_dest" {
-  default = "rds_mysql_57_destination"
-  #type = string
+  #default = "rds_mysql_57_destination"
+  type = string
 }
 
 variable "rds_source" {
-  default = "rds_mysql_57"
-  #type = string
+  #default = "rds_mysql_57"
+  type = string
 }
+
+variable "rds_password_dest" {
+  #default = "Zh9NTF8919w"
+  type = string
+}
+
+variable "rds_password_source" {
+  #default = "Zh9NTF8919w"
+  type = string
+}
+
+variable "rds_user_dest" {
+  #default = "root"
+  type = string
+}
+
+variable "rds_user_source" {
+  #default = "root"
+  type = string
+}
+
+variable "rds_port_dest" {
+  #default = "3306"
+  type = string
+}
+
+variable "rds_port_source" {
+  #default = "3306"
+  type = string
+}
+
+
 
 
 variable "vpc_name" {
