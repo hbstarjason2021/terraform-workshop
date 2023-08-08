@@ -6,10 +6,54 @@
 #### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/drs_job
   
 
-resource "huaweicloud_drs_job" "drs_job" {
+resource "huaweicloud_drs_job" "drs_job_test" {
   direction = "up"
   engine_type = "mysql"
   name = "drs-test"
+  type = "migration"
+  # migration: Online Migration
+  # sync: Data Synchronization
+  # cloudDataGuard: Disaster Recovery
+
+  # net_type       = "eip"
+  net_type       = "vpc"
+  # migration_type = "FULL_INCR_TRANS"
+  # start_time = "yyyy-MM-dd HH:mm:ss" 
+
+  destination_db {
+    engine_type = "mysql"
+    instance_id = huaweicloud_rds_instance.myinstance_dest.id
+    ip = huaweicloud_rds_instance.myinstance_dest.private_ips[0]
+    #password = random_password.mypassword.result
+    password = var.rds_password
+    port = 3306
+    subnet_id = huaweicloud_vpc_subnet.mysubnet.id
+    user = "root"
+  }
+
+  source_db {
+    engine_type = "mysql"
+    instance_id = huaweicloud_rds_instance.myinstance.id
+    ip = huaweicloud_rds_instance.myinstance.private_ips[0]
+    #ip = "<mysql_ip>"
+    #password = random_password.mypassword.result
+    #password = "Cloud12#$"
+    password = var.rds_password
+    port = 3306
+    subnet_id = huaweicloud_vpc_subnet.mysubnet.id
+    user = "root"
+    # ssl_link    = false
+  }
+
+}
+
+########################
+
+
+resource "huaweicloud_drs_job" "drs_job_demo" {
+  direction = "up"
+  engine_type = "mysql"
+  name = "drs-demo"
   type = "migration"
   # migration: Online Migration
   # sync: Data Synchronization
