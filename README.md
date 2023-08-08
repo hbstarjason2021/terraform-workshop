@@ -40,6 +40,7 @@ apt install graphviz -y
 terraform graph | dot -Tpng > graph.png
 docker run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx
 
+terraform  plan -destroy 
 terraform destroy
 ```
 
