@@ -1,4 +1,4 @@
-variable "rds_job_name" {
+variable "drs_job_name" {
   type = string
 }
 
