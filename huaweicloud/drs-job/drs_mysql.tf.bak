@@ -23,7 +23,7 @@ resource "huaweicloud_drs_job" "drs_job" {
     ip = data.huaweicloud_rds_instances.myinstance_dest.instances[0].fixed_ip
     #password = random_password.mypassword.result
     password = var.rds_password_dest
-    port = var.rds_user_dest
+    port = var.rds_port_dest
     subnet_id = data.huaweicloud_vpc_subnet.mysubnet.id
     user = var.rds_port_dest
   }
