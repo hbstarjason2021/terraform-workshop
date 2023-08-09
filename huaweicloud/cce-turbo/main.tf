@@ -33,6 +33,8 @@ resource "huaweicloud_vpc_subnet" "eni_test_2" {
   vpc_id        = huaweicloud_vpc.myvpc.id
 }
 
+
+/*
 resource "huaweicloud_vpc_eip" "myeip" {
   publicip {
     type = "5_bgp"
@@ -46,7 +48,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
   }
 }
 
-/*
+
 resource "huaweicloud_nat_gateway" "mynat" {
   name                = "turbo_nat-gateway"
   spec                = "1"
@@ -69,7 +71,7 @@ resource "huaweicloud_cce_cluster" "turbo" {
   vpc_id                 = huaweicloud_vpc.myvpc.id
   subnet_id              = huaweicloud_vpc_subnet.mysubnet.id
   container_network_type = "eni"
-  eip                    = huaweicloud_vpc_eip.myeip.address
+  #eip                    = huaweicloud_vpc_eip.myeip.address
   eni_subnet_id          = join(",", [
     huaweicloud_vpc_subnet.eni_test_1.ipv4_subnet_id,
     huaweicloud_vpc_subnet.eni_test_2.ipv4_subnet_id,
