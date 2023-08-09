@@ -45,14 +45,13 @@ variable "rds_port_source" {
 
 
 
-
 variable "vpc_name" {
   default = "vpc-basic"
   #type = string
 }
 
 variable "subnet_name" {
-  default = "subent-default"
+  default = "subnet-source"
   #type = string
 }
 
@@ -60,6 +59,25 @@ variable "sg_source" {
   default = "my_secgroup_drs"
   #type = string
 }
+
+
+
+variable "vpc_name_dest" {
+  default = "vpc-dest"
+  #type = string
+}
+
+variable "subnet_name_dest" {
+  default = "subnet-dest"
+  #type = string
+}
+
+variable "sg_source_dest" {
+  default = "rds_secgroup_dest"
+  #type = string
+}
+
+
 
 variable "primary_dns" {
   default = "100.125.1.250"
