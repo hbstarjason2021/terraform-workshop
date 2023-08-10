@@ -9,6 +9,7 @@ resource "huaweicloud_drs_job" "drs_job" {
   engine_type = "mysql"
   name = var.drs_job_name
   type = "migration"
+  migrate_definer = false
 
   # net_type       = "eip"
   net_type       = "vpc"
