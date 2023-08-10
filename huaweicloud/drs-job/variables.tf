@@ -46,7 +46,7 @@ variable "rds_port_source" {
 
 
 variable "vpc_name" {
-  default = "vpc-basic"
+  default = "vpc-source"
   #type = string
 }
 
