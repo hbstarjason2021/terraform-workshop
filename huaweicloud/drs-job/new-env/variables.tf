@@ -17,7 +17,7 @@ variable "rds_password" {
 
 
 variable "vpc_name" {
-  default = "vpc-basic"
+  default = "vpc-source"
 }
 
 variable "vpc_cidr" {
