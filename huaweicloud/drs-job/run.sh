@@ -1,4 +1,6 @@
 
+terraform  init
+
 ### <drs_job_name>
 terraform workspace new  drs-demo  
 terraform workspace select drs-demo 
