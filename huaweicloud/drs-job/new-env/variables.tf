@@ -25,7 +25,7 @@ variable "vpc_cidr" {
 }
 
 variable "subnet_name" {
-  default = "subent-default"
+  default = "subnet-source"
 }
 
 variable "subnet_cidr" {
