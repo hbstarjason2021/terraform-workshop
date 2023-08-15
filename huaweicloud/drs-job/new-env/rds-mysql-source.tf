@@ -65,7 +65,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
     type = "5_bgp"
   }
   bandwidth {
-    name        = "test"
+    name        = "rds-eip"
     size        = 5
     share_type  = "PER"
     charge_mode = "traffic"
