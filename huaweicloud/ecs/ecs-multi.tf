@@ -1,11 +1,11 @@
-variable "count" {
+variable "number" {
   default = "3"
 }
 
 
 resource "huaweicloud_compute_instance" "multi_instance" {
   name            = "ecs-multi-${count.index}"
-  count           = 3
+  count           = var.number
   image_id        = data.huaweicloud_images_image.myimage.id
   flavor_id       = data.huaweicloud_compute_flavors.myflavor.ids[0]
   #flavor_id       = "s6.xlarge.2"
@@ -29,7 +29,7 @@ resource "huaweicloud_compute_instance" "multi_instance" {
 ##############################################################
 
 resource "huaweicloud_evs_volume" "myvol" {
-  count             = var.count
+  count             = var.number
   name              = "volume_${count.index}"
   availability_zone = data.huaweicloud_availability_zones.myaz.names[3]
   volume_type       = "SAS"
@@ -37,7 +37,7 @@ resource "huaweicloud_evs_volume" "myvol" {
 }
 
 resource "huaweicloud_compute_volume_attach" "attachments" {
-  count       = var.count
+  count       = var.number
   instance_id = huaweicloud_compute_instance.multi_instance[count.index].id
   volume_id   = element(huaweicloud_evs_volume.myvol[*].id, count.index)
 }
@@ -50,7 +50,7 @@ output "volume-devices" {
 
 /*
 resource "huaweicloud_vpc_eip" "myeip" {
-  count = var.count
+  count = var.number
   publicip {
     type = "5_bgp"
 
@@ -66,7 +66,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
 
 
 resource "huaweicloud_compute_eip_associate" "associated" {
-  count       = var.count
+  count       = var.number
   public_ip   = huaweicloud_vpc_eip.myeip[count.index].address
   instance_id = element(huaweicloud_vpc_eip.myeip[*].id, count.index)
 }
