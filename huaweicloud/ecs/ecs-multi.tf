@@ -1,3 +1,7 @@
+variable "count" {
+  default = "3"
+}
+
 
 resource "huaweicloud_compute_instance" "multi_instance" {
   name            = "ecs-multi-${count.index}"
@@ -25,7 +29,7 @@ resource "huaweicloud_compute_instance" "multi_instance" {
 ##############################################################
 
 resource "huaweicloud_evs_volume" "myvol" {
-  count             = 3
+  count             = var.count
   name              = "volume_${count.index}"
   availability_zone = data.huaweicloud_availability_zones.myaz.names[3]
   volume_type       = "SAS"
@@ -33,7 +37,7 @@ resource "huaweicloud_evs_volume" "myvol" {
 }
 
 resource "huaweicloud_compute_volume_attach" "attachments" {
-  count       = 4
+  count       = var.count
   instance_id = huaweicloud_compute_instance.multi_instance[count.index].id
   volume_id   = element(huaweicloud_evs_volume.myvol[*].id, count.index)
 }
@@ -46,7 +50,7 @@ output "volume-devices" {
 
 /*
 resource "huaweicloud_vpc_eip" "myeip" {
-  count = 3
+  count = var.count
   publicip {
     type = "5_bgp"
 
@@ -62,7 +66,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
 
 
 resource "huaweicloud_compute_eip_associate" "associated" {
-  count       = 3
+  count       = var.count
   public_ip   = huaweicloud_vpc_eip.myeip[count.index].address
   instance_id = element(huaweicloud_vpc_eip.myeip[*].id, count.index)
 }
