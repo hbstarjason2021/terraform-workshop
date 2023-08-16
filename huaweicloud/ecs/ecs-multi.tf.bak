@@ -2,6 +2,11 @@ variable "number" {
   default = "3"
 }
 
+/*
+data "huaweicloud_kps_keypairs" "mykeypair" {
+  name = "keypair_name"
+}
+*/
 
 resource "huaweicloud_compute_instance" "multi_instance" {
   name            = "ecs-multi-${count.index}"
@@ -71,3 +76,6 @@ resource "huaweicloud_compute_eip_associate" "multi_associated" {
   instance_id = element(huaweicloud_compute_instance.multi_instance[*].id, count.index)
 }
 
+output "public_ip" {
+  value = huaweicloud_vpc_eip.multi_eip[*].address
+}
