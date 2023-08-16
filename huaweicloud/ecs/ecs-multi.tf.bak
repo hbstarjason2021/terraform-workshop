@@ -9,7 +9,7 @@ resource "huaweicloud_compute_instance" "multi_instance" {
   image_id        = data.huaweicloud_images_image.myimage.id
   flavor_id       = data.huaweicloud_compute_flavors.myflavor.ids[0]
   #flavor_id       = "s6.xlarge.2"
-  security_groups = ["Sys-FullAccess"]
+  security_groups = [var.secgroup_name]
   #security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id
 
   availability_zone = data.huaweicloud_availability_zones.myaz.names[3]
@@ -33,7 +33,7 @@ resource "huaweicloud_evs_volume" "myvol" {
   name              = "volume_${count.index}"
   availability_zone = data.huaweicloud_availability_zones.myaz.names[3]
   volume_type       = "SAS"
-  size              = 500
+  size              = 200
 }
 
 resource "huaweicloud_compute_volume_attach" "attachments" {
