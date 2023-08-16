@@ -113,7 +113,7 @@ resource "huaweicloud_evs_volume" "myvolume" {
   name              = "myvolume"
   availability_zone = data.huaweicloud_availability_zones.myaz.names[0]
   volume_type       = "SAS"
-  size              = 10
+  size              = 100
 }
 
 resource "huaweicloud_compute_volume_attach" "attached" {
@@ -121,4 +121,24 @@ resource "huaweicloud_compute_volume_attach" "attached" {
   volume_id   = huaweicloud_evs_volume.myvolume.id
 }
 
+###############################
+/*
+resource "huaweicloud_evs_volume" "myvolume" {
+  count             = 3
+  name              = "volume_${count.index}"
+  availability_zone = data.huaweicloud_availability_zones.myaz.names[3]
+  volume_type       = "SAS"
+  size              = 100
+}
 
+
+resource "huaweicloud_compute_volume_attach" "attachments" {
+  count       = 3
+  instance_id = huaweicloud_compute_instance.myinstance[count.index].id
+  volume_id   = element(huaweicloud_evs_volume.myvolume[*].id, count.index)
+}
+
+output "volume-devices" {
+  value = huaweicloud_compute_volume_attach.attachments[*].device
+}
+*/
