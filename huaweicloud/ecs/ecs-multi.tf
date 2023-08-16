@@ -48,8 +48,8 @@ output "volume-devices" {
 
 ##################################################################
 
-/*
-resource "huaweicloud_vpc_eip" "myeip" {
+
+resource "huaweicloud_vpc_eip" "multi_eip" {
   count = var.number
   publicip {
     type = "5_bgp"
@@ -57,17 +57,17 @@ resource "huaweicloud_vpc_eip" "myeip" {
   }
   bandwidth {
 
-    name        = "mybandwidth"
-    size        = 50
+    name        = "multi_bandwidth"
+    size        = 10
     share_type  = "PER"
     charge_mode = "traffic"
   }
 }
 
 
-resource "huaweicloud_compute_eip_associate" "associated" {
+resource "huaweicloud_compute_eip_associate" "multi_associated" {
   count       = var.number
-  public_ip   = huaweicloud_vpc_eip.myeip[count.index].address
-  instance_id = element(huaweicloud_vpc_eip.myeip[*].id, count.index)
+  public_ip   = huaweicloud_vpc_eip.multi_eip[count.index].address
+  instance_id = element(huaweicloud_vpc_eip.multi_eip[*].id, count.index)
 }
-*/
+
