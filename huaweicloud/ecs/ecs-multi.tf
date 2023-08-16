@@ -1,5 +1,5 @@
 
-resource "huaweicloud_compute_instance" "myinstance" {
+resource "huaweicloud_compute_instance" "multi_instance" {
   name            = "ecs-multi-${count.index}"
   count           = 3
   image_id        = data.huaweicloud_images_image.myimage.id
@@ -34,7 +34,7 @@ resource "huaweicloud_evs_volume" "myvol" {
 
 resource "huaweicloud_compute_volume_attach" "attachments" {
   count       = 4
-  instance_id = huaweicloud_compute_instance.myinstance[count.index].id
+  instance_id = huaweicloud_compute_instance.multi_instance[count.index].id
   volume_id   = element(huaweicloud_evs_volume.myvol[*].id, count.index)
 }
 
