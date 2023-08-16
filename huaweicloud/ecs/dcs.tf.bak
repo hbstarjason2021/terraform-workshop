@@ -1,0 +1,71 @@
+#### redis
+
+### https://registry.terraform.io/providers/huaweicloud/huaweicloud/latest/docs/resources/dcs_instance
+
+
+############################ Single-node Redis instance
+
+data "huaweicloud_dcs_flavors" "single_flavors" {
+  cache_mode = "single"
+  capacity   = "4"
+}
+
+resource "huaweicloud_dcs_instance" "my_dcs" {
+  name               = "single_dcs"
+  engine             = "Redis"
+  engine_version     = "6.0"
+  capacity           = data.huaweicloud_dcs_flavors.single_flavors.capacity
+  flavor             = data.huaweicloud_dcs_flavors.single_flavors.flavors[0].name
+  availability_zones = [
+    data.huaweicloud_availability_zones.myaz.names[0]
+  ]
+  password           = "Huawei@123"
+  vpc_id             = huaweicloud_vpc.myvpc.id
+  subnet_id          = huaweicloud_vpc_subnet.mysubnet.id
+  charging_mode      = "postPaid"
+
+}
+
+########################## Master/Standby Redis instances
+
+data "huaweicloud_dcs_flavors" "master_standby_flavors" {
+  cache_mode = "ha"
+  capacity   = "4"
+}
+
+resource "huaweicloud_dcs_instance" "dcs_ha" {
+  engine         = "redis"
+  name           = "ha_dcs"
+  engine_version = "6.0"
+  capacity       = data.huaweicloud_dcs_flavors.master_standby_flavors.capacity
+  flavor         = data.huaweicloud_dcs_flavors.master_standby_flavors.flavors[0].name
+
+  availability_zones = [
+    data.huaweicloud_availability_zones.myaz.names[1],
+    data.huaweicloud_availability_zones.myaz.names[3]
+  ]
+  vpc_id        = huaweicloud_vpc.myvpc.id
+  subnet_id     = huaweicloud_vpc_subnet.mysubnet.id
+  password      = "Huawei@123"
+  charging_mode = "postPaid"
+
+  backup_policy {
+    backup_type = "auto"
+    save_days   = 3
+    period_type = "weekly"
+    backup_at   = [1, 2, 3, 4, 5, 6, 7]
+    begin_at    = "02:00-04:00"
+  }
+
+/*
+  whitelists {
+    group_name = "group_1"
+    ip_address = ["192.168.1.0/24"]
+  }
+  whitelists {
+    group_name = "group_2"
+    ip_address = ["10.11.3.0/24"]
+  }
+*/
+
+}
