@@ -18,7 +18,7 @@ resource "huaweicloud_compute_instance" "multi_instance" {
   #enterprise_project_id = "XXXXXXXXXXXXXXXXXXXXXXX"
 
   network {
-    uuid = data.huaweicloud_vpc_subnet.mysubnet.id
+    uuid = huaweicloud_vpc_subnet.mysubnet.id
   }
 }
 
