@@ -55,7 +55,7 @@ resource "random_password" "password" {
 }
 
 resource "huaweicloud_compute_instance" "myinstance" {
-  name               = "basic"
+  name               = "ecs-basic"
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
   security_groups   = [var.secgroup_name]
