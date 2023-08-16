@@ -1,7 +1,7 @@
 # 创建安全组
 resource "huaweicloud_networking_secgroup" "secgroup" {
   # name = "my_secgroup_${local.timestamp}"
-  name = "secgroup-basic"
+  name = var.secgroup_name
 
 }
 # 安全组规则-开放80端口
