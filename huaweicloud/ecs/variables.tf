@@ -31,6 +31,12 @@ variable "subnet_gateway" {
   default = "172.16.10.1"
 }
 
+variable "secgroup_name" {
+  default = "secgroup-basic"
+   #type = string
+}
+
+
 variable "primary_dns" {
   default = "100.125.1.250"
 }
