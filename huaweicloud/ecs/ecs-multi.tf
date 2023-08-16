@@ -57,7 +57,7 @@ resource "huaweicloud_vpc_eip" "multi_eip" {
   }
   bandwidth {
 
-    name        = "multi_bandwidth"
+    name        = "multi_bandwidth-${count.index}"
     size        = 10
     share_type  = "PER"
     charge_mode = "traffic"
@@ -68,6 +68,6 @@ resource "huaweicloud_vpc_eip" "multi_eip" {
 resource "huaweicloud_compute_eip_associate" "multi_associated" {
   count       = var.number
   public_ip   = huaweicloud_vpc_eip.multi_eip[count.index].address
-  instance_id = element(huaweicloud_vpc_eip.multi_eip[*].id, count.index)
+  instance_id = element(huaweicloud_compute_instance.multi_instance[*].id, count.index)
 }
 
