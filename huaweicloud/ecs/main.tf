@@ -21,3 +21,14 @@ resource "random_password" "password" {
 }
 
 
+resource "huaweicloud_evs_volume" "myvolume" {
+  name              = "myvolume"
+  availability_zone = data.huaweicloud_availability_zones.myaz.names[0]
+  volume_type       = "SAS"
+  size              = 100
+}
+
+resource "huaweicloud_compute_volume_attach" "attached" {
+  instance_id = huaweicloud_compute_instance.myinstance.id
+  volume_id   = huaweicloud_evs_volume.myvolume.id
+}
