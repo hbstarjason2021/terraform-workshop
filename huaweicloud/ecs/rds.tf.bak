@@ -1,9 +1,3 @@
-resource "random_password" "mypassword" {
-  length           = 12
-  special          = true
-  override_special = "!@#%^*-_=+"
-}
-
 
 resource "huaweicloud_rds_instance" "myinstance" {
   name                = "mysql_instance"
