@@ -1,14 +1,13 @@
 ##### sms task 
 
-/*
 data "huaweicloud_sms_source_servers" "this" {
-  name = "ecs-source"
+  #name = "ecs-source"
+  id = huaweicloud_compute_instance.myinstance.id
 }
 
 output "source_servers" {
-  value = huaweicloud_sms_source_servers.this.id
+  value = data.huaweicloud_sms_source_servers.this.servers[*].id
 }
-*/
 
 
 resource "huaweicloud_sms_server_template" "sms_server_template" {
@@ -18,7 +17,7 @@ resource "huaweicloud_sms_server_template" "sms_server_template" {
 
 resource "huaweicloud_sms_task" "sms_task" {
   os_type = "LINUX"
-  source_server_id = "5f2a6586-5c96-4236-92f0-6403eaccc752"   ############################################ Exchage
+  source_server_id = data.huaweicloud_sms_source_servers.this.servers[*].id   ############################################ Exchage
   type = "MIGRATE_FILE"
   vm_template_id  = huaweicloud_sms_server_template.sms_server_template.id
   action     = "start"
