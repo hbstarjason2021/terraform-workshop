@@ -46,7 +46,6 @@ resource "huaweicloud_compute_instance" "myinstance" {
     uuid = huaweicloud_vpc_subnet.mysubnet.id
   }
 
-
 }
 
 
@@ -60,8 +59,8 @@ resource "huaweicloud_vpc_eip" "myeip" {
     ### the default value is 5_bgp
   }
   bandwidth {
-    name        = "mybandwidth"
-    size        = 10
+    name        = "sms_bandwidth"
+    size        = 100
     share_type  = "PER"
     charge_mode = "traffic"
   }
