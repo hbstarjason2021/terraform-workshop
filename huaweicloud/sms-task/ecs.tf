@@ -14,6 +14,10 @@
 
 data "huaweicloud_availability_zones" "myaz" {}
 
+output "az_name_list" {
+ value = data.huaweicloud_availability_zones.myaz.names[*]
+}
+
 data "huaweicloud_compute_flavors" "myflavor" {
   availability_zone = data.huaweicloud_availability_zones.myaz.names[0]
   performance_type  = "normal"
