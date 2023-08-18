@@ -13,6 +13,7 @@ output "source_servers" {
 resource "huaweicloud_sms_server_template" "sms_server_template" {
   availability_zone = "cn-north-4a"
   name = "ecs-dest"
+  vpc_id = [data.huaweicloud_vpc.myvpc.id]
 }
 
 resource "huaweicloud_sms_task" "sms_task" {
