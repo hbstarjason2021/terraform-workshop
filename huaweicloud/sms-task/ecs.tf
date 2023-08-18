@@ -34,7 +34,6 @@ data "huaweicloud_images_image" "myimage" {
   most_recent = true
 }
 
-
 data "huaweicloud_vpc" "myvpc" {
   # name = var.vpc_name
    name = "vpc-source"
@@ -69,8 +68,8 @@ resource "huaweicloud_compute_instance" "myinstance" {
   name               = "ecs-source"
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
-  security_groups    = ["sg-source"]
-  #security_group_ids = [data.huaweicloud_networking_secgroup.mysecgroup.id ]
+  #security_groups    = ["sg-source"]
+  security_group_ids = [data.huaweicloud_networking_secgroup.mysecgroup.id ]
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "GPSSD"
   admin_pass         = "Huawei@1234" 
@@ -88,7 +87,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
     type = "5_bgp"
   }
   bandwidth {
-    name        = "mybandwidth"
+    name        = "sms_bandwidth"
     size        = 100
     share_type  = "PER"
     charge_mode = "traffic"
