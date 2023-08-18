@@ -3,7 +3,7 @@
 ######## bash install_agent.sh <AK> <SK>
 
 if [ $# -ne 2 ]; then
-  echo "Usage: $0 AK SK" 1>&2
+  echo "Usage: bash $0 AK SK" 1>&2
   exit 1
 fi
 
