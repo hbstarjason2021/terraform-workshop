@@ -99,7 +99,32 @@ resource "huaweicloud_compute_eip_associate" "associated" {
   instance_id = huaweicloud_compute_instance.myinstance.id
 }
 
+
 output "slb_eip_address" {
   value = huaweicloud_vpc_eip.myeip.address
-
 }
+
+output "ecs_flavor_name" {
+  value = huaweicloud_compute_instance.myinstance.flavor_name
+}
+
+output "ecs_image_name" {
+  value = huaweicloud_compute_instance.myinstance.image_name
+}
+
+output "ecs_public_ip" {
+  value = huaweicloud_compute_instance.myinstance.public_ip
+}
+
+output "ecs_status" {
+  value = huaweicloud_compute_instance.myinstance.status
+}
+
+output "ecs_network" {
+  value = huaweicloud_compute_instance.myinstance.network[*]
+}
+
+output "ecs_volume_attached" {
+  value = huaweicloud_compute_instance.myinstance.volume_attached[*]
+}
+
