@@ -13,6 +13,7 @@ output "source_servers" {
 resource "huaweicloud_sms_server_template" "sms_server_template" {
   availability_zone = "cn-north-4a"
   name = "ecs-dest"
+  volume_type = "SSD"
   vpc_id = data.huaweicloud_vpc.myvpc.id
   subnet_ids = [data.huaweicloud_vpc_subnet.mysubnet.id]
   security_group_ids = [data.huaweicloud_networking_secgroup.mysecgroup.id]
