@@ -2,6 +2,11 @@
 
 ######## bash install_agent.sh <AK> <SK>
 
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 AK SK" 1>&2
+  exit 1
+fi
+
 apt install -y rsync wget 
 
 wget -t 3 -T 15 https://sms-agent-2-0-cn-north-1.obs.cn-north-1.myhuaweicloud.com/SMS-Agent.tar.gz 
