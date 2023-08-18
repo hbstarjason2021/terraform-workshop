@@ -49,7 +49,7 @@ output "subne_id" {
   value = data.huaweicloud_vpc_subnet.mysubnet.id
 }
 
-/*
+
 data "huaweicloud_networking_secgroup" "mysecgroup" {
   name = "sg-source"
 }
@@ -57,7 +57,7 @@ data "huaweicloud_networking_secgroup" "mysecgroup" {
 output "secgroup_id" {
   value = data.huaweicloud_networking_secgroup.mysecgroup.id
 }
-*/
+
 
 ####################################################
 
