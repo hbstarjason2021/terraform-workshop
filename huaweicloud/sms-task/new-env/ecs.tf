@@ -79,7 +79,6 @@ output "slb_eip_address" {
 
 ###############################################################
 
-/*
 resource "null_resource" "provision" {
   depends_on = [huaweicloud_compute_eip_associate.associated]
 
@@ -93,8 +92,9 @@ resource "null_resource" "provision" {
     }
 
     inline = [
-      "bash install_agent.sh"
+      "echo 'this is test'"
     ]
   }
 }
-*/
+
+### bash install_agent.sh
