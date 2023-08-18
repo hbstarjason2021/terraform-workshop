@@ -92,7 +92,7 @@ resource "null_resource" "provision" {
     }
 
     inline = [
-      "echo 'this is test'"
+      " hostname && df -h "
     ]
   }
 }
