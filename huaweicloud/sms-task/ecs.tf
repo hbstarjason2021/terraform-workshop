@@ -99,10 +99,11 @@ resource "huaweicloud_compute_eip_associate" "associated" {
   instance_id = huaweicloud_compute_instance.myinstance.id
 }
 
-
 output "slb_eip_address" {
   value = huaweicloud_vpc_eip.myeip.address
 }
+
+##################################################################
 
 output "ecs_flavor_name" {
   value = huaweicloud_compute_instance.myinstance.flavor_name
@@ -128,3 +129,10 @@ output "ecs_volume_attached" {
   value = huaweicloud_compute_instance.myinstance.volume_attached[*]
 }
 
+output "ecs_security_groups" {
+  value = huaweicloud_compute_instance.myinstance.security_groups[*]
+}
+
+output "ecs_security_group_ids" {
+  value = huaweicloud_compute_instance.myinstance.security_group_ids[*]
+}
