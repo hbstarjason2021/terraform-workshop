@@ -1,3 +1,7 @@
+variable "ecs_name" {
+  default = "ecs-source-new"
+}
+
 variable "vpc_name" {
   default = "vpc-source-new"
 }
