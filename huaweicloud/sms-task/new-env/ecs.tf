@@ -30,7 +30,8 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
 }
 
 resource "huaweicloud_compute_instance" "myinstance" {
-  name               = "ecs-source"
+  #name               = "ecs-source"
+  name               = var.ecs_name
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
   #security_groups   = ["default"]
