@@ -32,8 +32,8 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
 }
 
 resource "huaweicloud_compute_keypair" "mykeypair" {
-  #name     = var.keypair_name
-  name      = local.keypair_name
+  name     = var.keypair_name
+  #name      = local.keypair_name
   #name     = "keypair-zhang"
   #key_file = "private_zhang.pem" 
   #key_file = var.private_key_path
