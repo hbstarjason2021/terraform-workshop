@@ -30,7 +30,8 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
 }
 
 resource "huaweicloud_compute_keypair" "mykeypair" {
-  name     = var.keypair_name
+  #name     = var.keypair_name
+  name      = local.keypair_name
   #name     = "keypair-zhang"
   #key_file = "private_zhang.pem" 
   #key_file = var.private_key_path
@@ -39,7 +40,8 @@ resource "huaweicloud_compute_keypair" "mykeypair" {
 }
 
 resource "huaweicloud_compute_instance" "myinstance" {
-  name               = "ecs-self"
+  #name               = "ecs-self"
+  name               = local.ecs_name
   image_id           = data.huaweicloud_images_image.myimage.id
   flavor_id          = data.huaweicloud_compute_flavors.myflavor.ids[0]
   #security_groups   = ["default"]
@@ -48,7 +50,7 @@ resource "huaweicloud_compute_instance" "myinstance" {
   availability_zone  = data.huaweicloud_availability_zones.myaz.names[0]
   system_disk_type   = "SSD"
   key_pair          = huaweicloud_compute_keypair.mykeypair.name
-  admin_pass        = "Huawei123" 
+  #admin_pass        = "Huawei123" 
   #admin_pass        = random_password.password.result
   
   # charging_mode = "prePaid"
@@ -73,7 +75,7 @@ resource "huaweicloud_vpc_eip" "myeip" {
     type = "5_bgp"
   }
   bandwidth {
-    name        = "mybandwidth"
+    name        = "ecs_bandwidth"
     size        = 50
     share_type  = "PER"
     charge_mode = "traffic"
@@ -113,7 +115,6 @@ output "slb_eip_address" {
   value = huaweicloud_vpc_eip.myeip.address
 
 }
-
 
 
 resource "null_resource" "provision" {
