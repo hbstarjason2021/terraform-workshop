@@ -9,6 +9,7 @@
 locals {
   timestamp    = formatdate("YYYYMMDDhhmmss", timestamp())
   keypair_name = "keypair-zhang-${local.timestamp}"
+  ecs_name     = "ecs-self-${local.timestamp}"
 }
 
 
