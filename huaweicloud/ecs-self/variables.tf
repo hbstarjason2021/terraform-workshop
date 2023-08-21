@@ -33,7 +33,7 @@ variable "ecs_name" {
 }
 
 variable "vpc_name" {
-  default = "vpc-self"
+  default = "vpc-self-${local.timestamp}"
 }
 
 variable "vpc_cidr" {
@@ -41,7 +41,7 @@ variable "vpc_cidr" {
 }
 
 variable "subnet_name" {
-  default = "subent-self"
+  default = "subent-self-${local.timestamp}"
 }
 
 variable "subnet_cidr" {
