@@ -26,12 +26,13 @@ variable "private_key_path" {
 #  default = "cn-north-4"
 #}
 
-/*
+
 variable "keypair_name" {
   description = "Keypair name"
   default = "keypair-zhang"
 }
 
+/*
 variable "ecs_name" {
   default = "ecs-self"
 }
@@ -43,7 +44,6 @@ variable "vpc_name" {
 variable "subnet_name" {
   default = "subent-self-${local.timestamp}"
 }
-
 */
 
 variable "vpc_cidr" {
