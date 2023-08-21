@@ -14,12 +14,14 @@ data "huaweicloud_images_image" "myimage" {
 }
 
 resource "huaweicloud_vpc" "myvpc" {
-  name = var.vpc_name
+  #name = var.vpc_name
+  name = local.vpc_name
   cidr = var.vpc_cidr
 }
 
 resource "huaweicloud_vpc_subnet" "mysubnet" {
-  name       = var.subnet_name
+  #name       = var.subnet_name
+  name       = local.subnet_name
   cidr       = var.subnet_cidr
   gateway_ip = var.subnet_gateway
 
