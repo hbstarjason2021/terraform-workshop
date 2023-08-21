@@ -6,6 +6,12 @@
 #    #type = "string"
 #}
 
+locals {
+  timestamp    = formatdate("YYYYMMDDhhmmss", timestamp())
+  keypair_name = "keypair-zhang-${local.timestamp}"
+}
+
+
 variable "keypair_name" {
   description = "Keypair name"
   default = "keypair-zhang"
