@@ -10,23 +10,27 @@ locals {
   timestamp    = formatdate("YYYYMMDDhhmmss", timestamp())
   keypair_name = "keypair-zhang-${local.timestamp}"
   ecs_name     = "ecs-self-${local.timestamp}"
+  vpc_name     = "vpc-self-${local.timestamp}"
+  subnet_name  = "subnet_name-${local.timestamp}"
 }
 
-
-variable "keypair_name" {
-  description = "Keypair name"
-  default = "keypair-zhang"
-}
 
 variable "private_key_path" {
   description = "The relative path of the private key"
   default = "private_zhang.pem"
 }
 
+
 #variable "hw_region" {
 #  type    = string
 #  default = "cn-north-4"
 #}
+
+/*
+variable "keypair_name" {
+  description = "Keypair name"
+  default = "keypair-zhang"
+}
 
 variable "ecs_name" {
   default = "ecs-self"
@@ -36,12 +40,14 @@ variable "vpc_name" {
   default = "vpc-self-${local.timestamp}"
 }
 
-variable "vpc_cidr" {
-  default = "172.16.0.0/16"
-}
-
 variable "subnet_name" {
   default = "subent-self-${local.timestamp}"
+}
+
+*/
+
+variable "vpc_cidr" {
+  default = "172.16.0.0/16"
 }
 
 variable "subnet_cidr" {
