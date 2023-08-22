@@ -108,3 +108,24 @@ resource "huaweicloud_compute_instance" "ecs_b" {
     fixed_ip_v4 = "172.17.1.10"
   }
 }
+
+###########################################
+
+resource "null_resource" "provision" {
+  #depends_on = [huaweicloud_compute_eip_associate.associated]
+
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = "root"
+      #private_key = file(var.private_key_path)
+      password    = "Huawei@123"
+      #host        = huaweicloud_vpc_eip.myeip.address
+      host        = "172.17.0.10"
+    }
+
+    inline = [
+      " hostname && df -h && ping -c 5 172.17.1.10 "
+    ]
+  }
+}
