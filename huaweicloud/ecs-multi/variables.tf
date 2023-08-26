@@ -9,7 +9,7 @@
 
 locals {
   timestamp    = formatdate("YYYYMMDDhhmmss", timestamp())
-  keypair_name = "keypair-zhang-${local.timestamp}"
+  #keypair_name = "keypair-zhang-${local.timestamp}"
   ecs_name     = "ecs-self-${local.timestamp}"
   vpc_name     = "vpc-self-${local.timestamp}"
   subnet_name  = "subnet_name-${local.timestamp}"
