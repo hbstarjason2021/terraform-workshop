@@ -1,7 +1,3 @@
-variable "number" {
-  default = "3"
-}
-
 
 data "huaweicloud_availability_zones" "myaz" {}
 
