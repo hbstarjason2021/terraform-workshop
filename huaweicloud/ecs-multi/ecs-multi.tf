@@ -52,8 +52,8 @@ resource "huaweicloud_compute_instance" "multi_instance" {
   name            = "ecs-multi-${count.index}"
   count           = var.number
   image_id        = data.huaweicloud_images_image.myimage.id
-  flavor_id       = data.huaweicloud_compute_flavors.myflavor.ids[0]
-  #flavor_id       = "s6.xlarge.2"
+  #flavor_id       = data.huaweicloud_compute_flavors.myflavor.ids[0]
+  flavor_id       = "c7n.2xlarge.2"
   #security_groups = [var.secgroup_name]
   #security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id
 
