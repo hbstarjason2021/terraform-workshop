@@ -32,6 +32,7 @@ resource "huaweicloud_vpc_subnet" "mysubnet" {
   vpc_id        = huaweicloud_vpc.myvpc.id
 }
 
+/*
 resource "huaweicloud_compute_keypair" "mykeypair" {
   name     = var.keypair_name
   #name      = local.keypair_name
@@ -41,7 +42,6 @@ resource "huaweicloud_compute_keypair" "mykeypair" {
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCuvqz+PrUSUMk3zLBIJVBkNvpZbULg/T4qJ1TlHMhhobeJk9280U67prXAjgEoF7XVlNjUd/+xzMo23154wmy2obdvj0r091rjKIg2fRzUCjsjaTvb7Myumi7bG9Ktu8l7k9m3jeJJfELIgVFl3N2nUyq5bvd0iy/bVv3oc8SkUBHVARuOloRqXk5ps5as6vHGpB2vYfyhcoAJU0fSdw2GXlFeCMcn/J/sCWq+uLOLs6HYO8CLUtW55k2BMtZ4sOQ/POYmdJc1vTcfAGTRE0glxvd06uiSr36IDTDcYoJuXq5QEU5mpvIyf0vpiOAsHMzFWBz/qFD5oadu38JzEBPqOXjXvJvAiH+YfCj4yY7Luhfzn8yCXlB4+kuTBuySdox3ZXAi1sSwLDz+Ppg4LgMCjNPPwNtUuwCBwp2oIUsMGQeI5NNmpSSKTpvg/y+OlsPcL2PLNywcRBIogvYSR6cxsd7qaO+cD5gE11167am30C9neDdclhiz2qwR3A+V8CU= root@ecs-self" 
 }
 
-/*
 data "huaweicloud_kps_keypairs" "mykeypair" {
   name = "keypair_name"
 }
@@ -53,15 +53,15 @@ resource "huaweicloud_compute_instance" "multi_instance" {
   count           = var.number
   image_id        = data.huaweicloud_images_image.myimage.id
   #flavor_id       = data.huaweicloud_compute_flavors.myflavor.ids[0]
-  flavor_id       = "c7n.2xlarge.2"
+  flavor_id        = "c7n.2xlarge.2"
   #security_groups = [var.secgroup_name]
   #security_group_ids = data.huaweicloud_networking_secgroup.mysecgroup.id
 
   availability_zone = data.huaweicloud_availability_zones.myaz.names[3]
   system_disk_type  = "GPSSD"
-  #admin_pass         = "Huawei@1234" 
-  #key_pair              = data.huaweicloud_kps_keypairs.mykeypair.name
-  key_pair          = huaweicloud_compute_keypair.mykeypair.name
+  admin_pass        = "Huawei@1234" 
+  #key_pair          = data.huaweicloud_kps_keypairs.mykeypair.name
+  #key_pair          = huaweicloud_compute_keypair.mykeypair.name
 
   #charging_mode         = "prePaid"
   #period_unit           = "month"
@@ -105,7 +105,7 @@ resource "huaweicloud_vpc_eip" "multi_eip" {
   bandwidth {
 
     name        = "multi_bandwidth-${count.index}"
-    size        = 10
+    size        = 50
     share_type  = "PER"
     charge_mode = "traffic"
   }
