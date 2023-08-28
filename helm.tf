@@ -49,3 +49,13 @@ resource "helm_release" "kube-prometheus" {
     value = "NodePort"
   }
 }
+
+/*
+helm pull  prometheus-community/kube-prometheus-stack
+cd kube-prometheus-stack/
+sed -i "s#registry.k8s.io#m.daocloud.io/registry.k8s.io#g" charts/kube-state-metrics/values.yaml
+sed -i "s#quay.io#m.daocloud.io/quay.io#g" charts/kube-state-metrics/values.yaml
+
+sed -i "s#registry.k8s.io#m.daocloud.io/registry.k8s.io#g" values.yaml
+sed -i "s#quay.io#m.daocloud.io/quay.io#g" values.yaml
+*/
