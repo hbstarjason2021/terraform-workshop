@@ -40,7 +40,7 @@ resource "helm_release" "kube-prometheus" {
 
   # https://github.com/prometheus-community/helm-charts/releases
 
-  version    = "48.2.0"
+  version    = "48.6.0"
   repository = "https://prometheus-community.github.io/helm-charts"
   chart      = "kube-prometheus-stack"
 
