@@ -1,4 +1,5 @@
 #### https://developer.hashicorp.com/terraform/tutorials/docker-get-started/docker-build
+#### https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs
 
 terraform {
   required_providers {
