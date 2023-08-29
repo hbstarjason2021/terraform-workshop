@@ -74,6 +74,7 @@ provider "minio" {
 }
 
 resource "minio_s3_bucket" "state_terraform_s3" {
+  depends_on = [docker_container.minio_container]
   bucket = "test-bucket-new"
   acl    = "public"
 }
