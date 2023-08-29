@@ -16,7 +16,7 @@ locals {
 }
 
 variable "number" {
-  default = "3"
+  default = "2"
 }
 
 
