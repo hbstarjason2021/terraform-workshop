@@ -89,7 +89,7 @@ resource "null_resource" "setup_db" {
 
   provisioner "local-exec" {
     command = <<EOF
-        mysql -u root -p Zh9NTF8=919w  -h ${huaweicloud_vpc_eip.myeip.address} < mall.sql
+        mysql -u root -p ${var.rds_password}  -h ${huaweicloud_vpc_eip.myeip.address} < mall.sql
     EOF
   }
 
