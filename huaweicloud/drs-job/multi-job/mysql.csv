@@ -1,0 +1,3 @@
+name,flavor,size,ha,az,name_drs,sip,suser,spass,sport
+rds_mysql_57_1,rds.mysql.n1.large.2,40,,cn-north-4a,rds_mysql_57_1_sync,source_eip_1,root,Zh9NTF8919w,3306
+rds_mysql_57_2,rds.mysql.n1.large.2,40,,cn-north-4c,rds_mysql_57_2_sync,source_eip_2,root,Zh9NTF8919w,3309
