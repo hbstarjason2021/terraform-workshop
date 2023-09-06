@@ -1,11 +1,10 @@
-
 variable "rds_password" {
   default = "Zh9NTF8919w"
 }
 
 
 variable "vpc_name" {
-  default = "vpc-source"
+  default = "vpc-drs"
 }
 
 variable "vpc_cidr" {
@@ -13,7 +12,7 @@ variable "vpc_cidr" {
 }
 
 variable "subnet_name" {
-  default = "subnet-source"
+  default = "subnet-drs"
 }
 
 variable "subnet_cidr" {
