@@ -29,7 +29,7 @@ variable "private_key_path" {
 
 variable "keypair_name" {
   description = "Keypair name"
-  default = "keypair-zhang"
+  default = "keypair-zhang369"
 }
 
 /*
