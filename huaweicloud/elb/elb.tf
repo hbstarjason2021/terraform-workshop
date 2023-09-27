@@ -30,13 +30,24 @@ resource "huaweicloud_networking_secgroup" "secgroup_1" {
   description = "basic security group"
 }
 
-# allow http
+# allow http 80
 resource "huaweicloud_networking_secgroup_rule" "allow_http" {
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
   port_range_min    = 80
   port_range_max    = 80
+  remote_ip_prefix  = "0.0.0.0/0"
+  security_group_id = huaweicloud_networking_secgroup.secgroup_1.id
+}
+
+# allow 22
+resource "huaweicloud_networking_secgroup_rule" "allow_22" {
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  port_range_min    = 22
+  port_range_max    = 22
   remote_ip_prefix  = "0.0.0.0/0"
   security_group_id = huaweicloud_networking_secgroup.secgroup_1.id
 }
