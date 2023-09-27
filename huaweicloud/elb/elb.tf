@@ -42,11 +42,12 @@ resource "huaweicloud_networking_secgroup_rule" "allow_http" {
 }
 
 resource "huaweicloud_compute_instance" "instance" {
-  name              = "instance_${count.index}"
+  name              = "elb_${count.index}"
   image_id          = data.huaweicloud_images_image.myimage.id
   flavor_id         = data.huaweicloud_compute_flavors.myflavor.ids[0]
   availability_zone = data.huaweicloud_availability_zones.myaz.names[0]
   security_groups   = [var.secgroup_name]
+  admin_pass        = "Huawei123" 
 
   network {
     uuid = huaweicloud_vpc_subnet.subnet_1.id
