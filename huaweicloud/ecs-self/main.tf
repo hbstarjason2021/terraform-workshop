@@ -127,6 +127,8 @@ resource "null_resource" "provision" {
       user        = "root"
       private_key = file(var.private_key_path)
       host        = huaweicloud_vpc_eip.myeip.address
+      type        = "ssh"
+      timeout     = "2m"
     }
 
     inline = [
