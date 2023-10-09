@@ -11,6 +11,11 @@
 #  default = "cn-north-4"
 #}
 
+variable "keypair_name" {
+  description = "Keypair name"
+  default = "keypair-zhang369"
+}
+
 variable "vpc_name" {
   default = "vpc-basic"
 }
