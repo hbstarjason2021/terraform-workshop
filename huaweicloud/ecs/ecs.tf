@@ -50,3 +50,8 @@ resource "time_sleep" "wait_3_minutes" {
   create_duration = "180s"
 }
 
+# resource "null_resource" "huawei_init" {
+#  provisioner "local-exec" {
+#    command = "wget -qO- https://jihulab.com/hbstarjason/ali-init/-/raw/main/huawei_init.sh| bash"
+#  }
+# }
