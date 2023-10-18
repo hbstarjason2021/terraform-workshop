@@ -99,7 +99,8 @@ resource "huaweicloud_cce_node_pool" "node_pool" {
   scale_down_cooldown_time = 100
   priority                 = 1
   type                     = "vm"
-  runtime                  = "docker"
+  #runtime                  = "docker"
+  #Cluster versions v1.27.1-r10 only support the containerd container runtime
 
   root_volume {
     size       = 40
