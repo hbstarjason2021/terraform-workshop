@@ -10,8 +10,8 @@ terraform {
 # 支持配置资源池、可用区和企业项目，若不配置资源池，则会使用页面选定的资源池
 # ak/sk无需配置，会自动获取当前账号的ak/sk 
 provider "ctyun" {
-  region_id = "bb9fdb42056f11eda1610242ac110002"
-  az_name = "cn-huadong1-jsnj1A-public-ctcloud"
+  region_id = "200000001852"
+  az_name   = "cn-huabei2-tj1A-public-ctcloud"
 }
  
  
