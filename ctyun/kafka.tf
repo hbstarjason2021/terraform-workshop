@@ -9,6 +9,9 @@ terraform {
 
 provider "ctyun" {
 
+  region_id = "200000001852"
+  az_name   = "cn-huabei2-tj1A-public-ctcloud"
+
 }
 
 variable "kafka_name" {
