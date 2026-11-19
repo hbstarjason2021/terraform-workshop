@@ -39,3 +39,17 @@ resource "ctyun_subnet" "subnet_test_demo" {
   ]
   enable_ipv6 = true
 }
+
+# create two Subnet
+resource "ctyun_subnet" "subnet_test_demo_2" {
+  vpc_id      = ctyun_vpc.vpc_test_demo.id
+  name        = "subnet-for-demo-2"
+  cidr        = "192.168.2.0/24"
+  description = "terraform_demo-2"
+
+  dns = [ 
+    "114.114.114.114",
+    "8.8.8.8"
+  ]
+  enable_ipv6 = true
+}
