@@ -11,6 +11,7 @@ terraform {
 ## export TYUN_SK=""
 ## CTYUN_REGION_ID="200000001852"
 ## CTYUN_AZ_NAME="cn-huabei2-tj1A-public-ctcloud"
+## CTYUN_ENV=""
 
 ### https://registry.terraform.io/providers/ctyun-it/ctyun/latest/docs
 
