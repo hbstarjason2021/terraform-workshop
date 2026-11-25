@@ -1,7 +1,7 @@
 
 # create vpc
 resource "ctyun_vpc" "vpc_test_demo" {
-  name        = "vpc-for-ecs${local.random_string}"
+  name        = "vpc-for-ecs-${local.random_string}"
   cidr        = "192.168.0.0/16"
   description = "terraform_demo"
   enable_ipv6 = true
