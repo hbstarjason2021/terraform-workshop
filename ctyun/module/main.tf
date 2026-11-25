@@ -1,3 +1,16 @@
+### 
+locals {
+  seed_list = [for i in range(var.instance_count) : "${var.password_seed}-${i}"]
+  passwords = [
+    for seed in local.seed_list :
+    format(
+      "%s%s%s",
+      substr(replace(upper(sha256(seed)), "/[^A-Za-z0-9]/", ""), 0, 5),
+      "A@a",
+      substr(replace(lower(sha256(seed)), "/[^A-Za-z0-9]/", ""), 5, 5),
+    )
+  ]
+}
 
 # 配置VPC、子网和安全组规则
 locals {
@@ -10,6 +23,8 @@ locals {
     },
   ]
 }
+
+
 
 module "vpc" {
   source             = "./vpc"
@@ -48,15 +63,3 @@ output "ecs_eip" {
   ]
 }
 
-locals {
-  seed_list = [for i in range(var.instance_count) : "${var.password_seed}-${i}"]
-  passwords = [
-    for seed in local.seed_list :
-    format(
-      "%s%s%s",
-      substr(replace(upper(sha256(seed)), "/[^A-Za-z0-9]/", ""), 0, 5),
-      "A@a",
-      substr(replace(lower(sha256(seed)), "/[^A-Za-z0-9]/", ""), 5, 5),
-    )
-  ]
-}
