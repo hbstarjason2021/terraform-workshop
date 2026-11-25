@@ -1,7 +1,7 @@
 
 variable "az_name" {
   type        = string
-  default     = "cn-huadong1-jsnj1A-public-ctcloud"
+  default     = "cn-huabei2-tj1A-public-ctcloud"
   description = "可用区名称"
 }
 
