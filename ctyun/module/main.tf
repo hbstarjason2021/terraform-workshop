@@ -49,7 +49,7 @@ variable "flavor_name" {
 
 variable "system_disk_type" {
   type        = string
-  default     = "sas"
+  default     = "SAS"
   description = "系统盘类型"
 }
 
